@@ -2,22 +2,48 @@
     font-family: Cambria;
 }
 
-@media (max-width: 768px) {
-    body{
-        background-image: url('img/a.jpg');
-        background-repeat: no-repeat;
-        background-size: cover;
-        overflow:hidden;
+@media (min-width:1300px) {
+    body {
+         background-image: url('../img/bg/c.jpg');
+         background-repeat: no-repeat;
+         background-size: cover;
+         overflow: hidden;
+    }
+    .card-img-top {
+        width: 500px;
+        height: 350px;
+    }
+
+    .card-body {
+        font-size: 20px;
+        line-height: 1.4;
+    }
+
+    .card-title {
+        font-size: px;
     }
 }
- @media (min-width:1300px) {
+
+@media (max-width: 768px) {
     body{
-        background-image: url('img/c.jpg');
+        background-image: url('../img/bg/a.jpg');
         background-repeat: no-repeat;
         background-size: cover;
         overflow:hidden;
     }
-} 
+    .card-img-top {
+        width: 200px;
+        height: 200px;
+    }
+    .card-body{
+        font-size:12px;
+        line-height: 0.1;
+    }
+    .card-title{
+        font-size:14px;
+    }
+}
+
 .logo-text{
     font-family: Cambria;
     font-size: 16px;
@@ -41,8 +67,7 @@
     display: block;
     max-height: 600px;
     overflow-y: auto;
-    -ms-overflow-style: -ms-autohiding-scrollbar;
-     margin-left: 5px;
+    margin-left: 3px;
 }
 
 #style-1::-webkit-scrollbar {
