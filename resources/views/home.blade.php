@@ -23,10 +23,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ asset('/about') }}">About</a>
+                    <a href="{{url('/')}}">Dashboard</a>
                 </li>
                 <li>
-                    <a href="{{url('/home')}}">Home</a>
+                    <a href="#">Shortcuts</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>
@@ -50,13 +50,9 @@
         <!-- Page Content -->
         <div id="page-content-wrapper">
         <a href="#menu-toggle" id="menu-toggle">Menu</a>
-            <div class="container-fluid">
+            <div class="container-fluid bg-success">
                 
-                <h1>
-                   Sai yan naing to Master to Aung Nyi Thit
-
-                   Sai yan naing to Master editing by kyawsoenaing
-                </h1>
+               <h1 class="text-white">Welcome to KSN Home Page</h1>
                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
             </div>
