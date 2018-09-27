@@ -23,10 +23,10 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ asset('/') }}">Dashboard</a>
+                    <a href="{{ url('/') }}">Dashboard</a>
                 </li>
                 <li>
-                    <a href="#">Shortcuts</a>
+                    <a href="{{ url('/home')">Home</a>
                 </li>
                 <li>
                     <a href="#">Overview</a>
