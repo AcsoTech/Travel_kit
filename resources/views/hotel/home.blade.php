@@ -36,7 +36,8 @@
 
 @section('content')
     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
+       <div class="card col" style="width: 28rem;">
+       <a href="{{ url('/room') }}" class="logo-text">
             <div class="row mb-1">
                 <img class="card-img-top col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
                 <div class="card-body col-6 p-1">
@@ -52,8 +53,9 @@
                     <p class="text-primary"><i class="fa fa-dollar"></i> 51/night</p>
                 </div>
             </div>
-    
+            </a>
         </div>
+      
     </div>
 
      <div class="row mt-3">

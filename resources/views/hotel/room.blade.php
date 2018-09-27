@@ -45,15 +45,15 @@
                                 <!-- The slideshow -->
                                 <div class="carousel-inner">
                                     <div class="carousel-item active">
-                                        <img class="card-img-top " src="{{asset('img/hotel1.jpg')}}" 
+                                        <img class="card-img-top " src="{{asset('img/hotel/hotel1.jpg')}}" 
                                         width="200" height="200" alt="Card image cap">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="card-img-top " src="{{asset('img/hotel3.jpg')}}" 
+                                        <img class="card-img-top " src="{{asset('img/hotel/hotel3.jpg')}}" 
                                         width="200" height="200" alt="Card image cap">
                                     </div>
                                     <div class="carousel-item">
-                                        <img class="card-img-top " src="{{asset('img/hotel2.jpg')}}" 
+                                        <img class="card-img-top " src="{{asset('img/hotel/hotel2.jpg')}}" 
                                         width="200" height="200" alt="Card image cap">
                                     </div>
                                 </div>
@@ -69,7 +69,7 @@
 
 
         
-                    <!-- <img class="card-img-top " src="{{asset('img/hotel1.jpg')}}" 
+                    <!-- <img class="card-img-top " src="{{asset('img/hotel/hotel1.jpg')}}" 
                     width="200" height="200" alt="Card image cap"> -->
                     <h5 class="p-1 m-2">Standard Double <i class="fa fa-angle-right float-right"></i></h5>
                     <h6 class="p-1 m-2"><i class="fa fa-user-o "></i> Max 2 adults</h6><hr>
@@ -99,15 +99,15 @@
                         <!-- The slideshow -->
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="card-img-top " src="{{asset('img/hotel2.jpg')}}" 
+                                <img class="card-img-top " src="{{asset('img/hotel/hotel2.jpg')}}" 
                                 width="200" height="200" alt="Card image cap">
                             </div>
                             <div class="carousel-item">
-                                <img class="card-img-top " src="{{asset('img/hotel1.jpg')}}" 
+                                <img class="card-img-top " src="{{asset('img/hotel/hotel1.jpg')}}" 
                                 width="200" height="200" alt="Card image cap">
                             </div>
                             <div class="carousel-item">
-                                <img class="card-img-top " src="{{asset('img/hotel3.jpg')}}" 
+                                <img class="card-img-top " src="{{asset('img/hotel/hotel3.jpg')}}" 
                                 width="200" height="200" alt="Card image cap">
                             </div>
                         </div>
@@ -121,7 +121,7 @@
                         </a>
                 </div>
 
-                    <!-- <img class="card-img-top " src="{{asset('img/hotel2.jpg')}}" 
+                    <!-- <img class="card-img-top " src="{{asset('img/hotel/hotel2.jpg')}}" 
                     width="200" height="200" alt="Card image cap"> -->
                     <h5 class="p-1 m-2">Superior Double Room <i class="fa fa-angle-right float-right"></i></h5>
                     <h6 class="p-1 m-2"><i class="fa fa-user-o "></i> Max 2 adults,plus 1 on extra bed<br>2 children(0-5 years)stay FREE!</h6><hr>
