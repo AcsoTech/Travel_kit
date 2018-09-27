@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ asset('/about') }}">About</a>
+                    <a href="#">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
@@ -51,12 +51,12 @@
         <div id="page-content-wrapper">
         <a href="#menu-toggle" id="menu-toggle">Menu</a>
             <div class="container-fluid">
-                
-                <h1>
-                   Sai yan naing to Master to Aung Nyi Thit
-                </h1>
-                <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
-                <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
+             <h1>About</h1>
+             <p>A jumbotron indicates a big grey box for calling extra attention to some special content or information.
+
+Tip: Inside a jumbotron you can put nearly any valid HTML, including other Bootstrap elements/classes.A jumbotron indicates a big grey box for calling extra attention to some special content or information.
+
+Tip: Inside a jumbotron you can put nearly any valid HTML, including other Bootstrap elements/classes.</p>
             </div>
         </div>
         <!-- /#page-content-wrapper -->
