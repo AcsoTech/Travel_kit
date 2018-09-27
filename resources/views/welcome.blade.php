@@ -38,7 +38,7 @@
                     <a href="#">About</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="#">Address</a>
                 </li>
                 <li>
                     <a href="#">Contact</a>
@@ -52,10 +52,10 @@
         <a href="#menu-toggle" id="menu-toggle">Menu</a>
             <div class="container-fluid">
                 
-                <h1>
+                <h5>
 
                    Sai yan naing to Master editing by kyawsoenaing
-                </h1>
+                </h5>
                 <p>This template has a responsive menu toggling system. The menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will appear/disappear. On small screens, the page content will be pushed off canvas.</p>
                 <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
             </div>
