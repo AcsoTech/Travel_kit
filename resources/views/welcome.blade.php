@@ -19,12 +19,13 @@
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
+            <ul class="sidebar-nav english">
+                
+                <li class="sidebar-brand mb-5">
+                   <img src="{{ asset('logo.png') }}" alt="hello" width="250" height="150">
                 </li>
+                <hr>
+               <div class="s">
                 <li>
                     <a href="{{ asset('/about') }}">About</a>
                 </li>
@@ -34,6 +35,8 @@
                 <li>
                     <a href="#">Overview</a>
                 </li>
+               
+                <hr>
                 <li>
                     <a href="#">Events</a>
                 </li>
@@ -46,6 +49,7 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
+            </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -61,6 +65,11 @@
           <i class="fa fa-bars text-white"></i>
       </a>
    
+  </ul>
+  <ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="travel" href="#">Taveller's Kit</a>
+            </li>
   </ul>
 </nav>
   

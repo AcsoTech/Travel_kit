@@ -28,18 +28,32 @@
 .english{
     font-family: Cambria;
 }
-.side{
-    background-color: #66a3ff;
-}
+
 .w{
     color:white;  
 }
 .b{
     color:black;
 }
+@media (max-width: 768px) {
 body{
-    background-image: url('img/a.jpg')
+    background-image: url('img/a.jpg');
 }
-.box{
-    box-shadow: 0px 0px 1px 1px rgba(132, 120, 240, 0);
+}
+ @media (min-width:1300px) {
+    body{
+        background-image: url('img/c.jpg');
+    }
+    } 
+.travel {
+    font-family: Cambria;
+    font-size: 30px;
+    color:white;
+    text-decoration: none;
+}
+.s{
+    display:block;
+    max-height: 250px;
+    overflow-y: auto;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
 }
