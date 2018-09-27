@@ -29,28 +29,71 @@
 
 @section('content')
     <h3>Hotel Service</h3>
-    <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. 
-        It has roots in a piece of classical Latin literature from 45 BC, making 
-        it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
-        College in Virginia, looked up one of the more obscure Latin words, consectetur, 
-        from a Lorem Ipsum passage, and going through the cites of the word in classical 
-        literature, discovered the undoubtable source. Lorem Ipsum comes from sections 
-        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
-        Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of 
-        ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
-        "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-    <p>
-    <p>
-        Contrary to popular belief, Lorem Ipsum is not simply random text. 
-        It has roots in a piece of classical Latin literature from 45 BC, making 
-        it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
-        College in Virginia, looked up one of the more obscure Latin words, consectetur, 
-        from a Lorem Ipsum passage, and going through the cites of the word in classical 
-        literature, discovered the undoubtable source. Lorem Ipsum comes from sections 
-        1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and
-        Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of 
-        ethics, very popular during the Renaissance. The first line of Lorem Ipsum,
-        "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
-    <p>
+    <div class="row">
+    <div class="card col" style="width: 28rem;">
+        <div class="row">
+            <img class="card-img-top col-5 pt-1 " src="{{asset('img/hotel1.jpg')}}" width="350" height="350" alt="Card image cap">
+            <div class="card-body col-7 p-1">
+                 <h5 class="text-primary">Bangan King Hotel <i class="fa fa-thumbs-up text-success"></i> </h5>
+                 <p>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                 <p>
+                 <h6 class="card-text">Excellent 8.8</h6>
+                 <p class="text-success"><i class="fa fa-wifi"> </i>  Free Wi-fi</p>
+                 <p class="text-success"><i class="fa fa-check"> Pay at the hotel</i>
+                 <p class="float-right mr-5 text-primary"><i class="fa fa-dollar"></i>51/night</p>
+                <p class="float-right">Supplied by Booking.com</p>
+                 
+            </div>
+        </div>
+  
+    </div>
+</div>
+<div class="row">
+    <div class="card col" style="width: 28rem;">
+        <div class="row">
+            <img class="card-img-top col-5 " src="{{asset('img/hotel2.jpg')}}" width="350" height="350" alt="Card image cap">
+            <div class="card-body col-7 p-1">
+                 <h5 class="text-primary">Bangan King Hotel <i class="fa fa-thumbs-up text-success"></i> </h5>
+                 <p>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                 <p>
+                 <h6 class="card-text">Excellent 8.8</h6>
+                 <p class="text-success"><i class="fa fa-wifi"> </i>  Free Wi-fi</p>
+                 <p class="text-success"><i class="fa fa-check"> Pay at the hotel</i>
+                 <p class="float-right mr-5 text-primary"><i class="fa fa-dollar"></i>51/night</p>
+                <p class="float-right">Supplied by Booking.com</p>
+                 
+            </div>
+        </div>
+  
+    </div>
+</div>
+<div class="row">
+    <div class="card col" style="width: 28rem;">
+        <div class="row">
+            <img class="card-img-top col-5 " src="{{asset('img/hotel3.jpg')}}" width="350" height="350" alt="Card image cap">
+            <div class="card-body col-7 p-1">
+                 <h5 class="text-primary">Bangan King Hotel <i class="fa fa-thumbs-up text-success"></i> </h5>
+                 <p>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                    <i class="fa fa-star text-warning"></i>
+                 <p>
+                 <h6 class="card-text">Excellent 8.8</h6>
+                 <p class="text-success"><i class="fa fa-wifi"> </i>  Free Wi-fi</p>
+                 <p class="text-success"><i class="fa fa-check"> Pay at the hotel</i>
+                 <p class="float-right mr-5 text-primary"><i class="fa fa-dollar"></i>51/night</p>
+                <p class="float-right">Supplied by Booking.com</p>
+                 
+            </div>
+        </div>
+  
+    </div>
+</div>
+
 @endsection
