@@ -15,16 +15,18 @@
     </style>
 </head>
 <body>
-    <div id="wrapper">
+   
+    <div id="wrapper" class="fixed-top">
 
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Start Bootstrap
-                    </a>
+            <ul class="sidebar-nav english">
+                
+                <li class="sidebar-brand mb-5">
+                   <img src="{{ asset('logo.png') }}" alt="hello" width="250" height="150">
                 </li>
+                <hr>
+               <div class="s">
                 <li>
                     <a href="{{ asset('/about') }}">About</a>
                 </li>
@@ -34,6 +36,8 @@
                 <li>
                     <a href="#">Overview</a>
                 </li>
+               
+                <hr>
                 <li>
                     <a href="#">Events</a>
                 </li>
@@ -46,13 +50,14 @@
                 <li>
                     <a href="#">Contact</a>
                 </li>
+            </div>
             </ul>
         </div>
         <!-- /#sidebar-wrapper -->
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-        <nav class="navbar navbar-expand-sm bg-default side box">
+        <nav class="navbar navbar-expand-sm bg-default">
  
   <!-- Links -->
   <ul class="navbar-nav">
@@ -62,18 +67,33 @@
       </a>
    
   </ul>
+  <ul class="navbar-nav ml-auto">
+			<li class="nav-item">
+				<a class="travel" href="#">Taveller's Kit</a>
+            </li>
+  </ul>
 </nav>
   
         <!-- <a href="#menu-toggle" id="menu-toggle">Menu</a> -->
-            <div class="container-fluid">
-                
-                <h1>Welcome Page</h1>
-            </div>
+            
+
         </div>
         <!-- /#page-content-wrapper -->
 
     </div>
+    <div class="container-fluid mt-5">
+                
+                <h3>Welcome Page</h3>
+                <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+<p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.
+
+The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.</p>
+            
+</div>
     <!-- /#wrapper -->
+
     <script src="js/jquery.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap_4.js"></script>
