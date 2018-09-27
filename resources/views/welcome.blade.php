@@ -7,6 +7,9 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap_4.css">
     <link rel="stylesheet" href="css/simple-sidebar.css">
+    <link rel="stylesheet" href="css/test.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
     <style>
         
     </style>
@@ -49,7 +52,19 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-        <a href="#menu-toggle" id="menu-toggle">Menu</a>
+        <nav class="navbar navbar-expand-sm bg-default side box">
+ 
+  <!-- Links -->
+  <ul class="navbar-nav">
+    <li class="nav-item">
+      <a class="nav-link" href="#menu-toggle" id="menu-toggle"> 
+          <i class="fa fa-bars text-white"></i>
+      </a>
+   
+  </ul>
+</nav>
+  
+        <!-- <a href="#menu-toggle" id="menu-toggle">Menu</a> -->
             <div class="container-fluid">
                 
                 <h1>Welcome Page</h1>
