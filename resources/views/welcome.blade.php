@@ -42,7 +42,7 @@
                     <a href="#">Events</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                <a href="{{url('/about')}}">About</a>
                 </li>
                 <li>
                     <a href="#">Address</a>
