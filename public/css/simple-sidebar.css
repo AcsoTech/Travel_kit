@@ -33,6 +33,9 @@ body {
   -moz-transition: all 0.5s ease;
   -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
 }
 
 #wrapper.toggled #sidebar-wrapper {
