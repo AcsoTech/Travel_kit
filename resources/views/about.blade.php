@@ -23,7 +23,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#">Dashboard</a>
+                    <a href="{{ asset('/welcome'}})">Dashboard</a>
                 </li>
                 <li>
                     <a href="#">Shortcuts</a>
