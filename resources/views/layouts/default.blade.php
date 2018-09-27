@@ -9,20 +9,17 @@
     <link rel="stylesheet" href="css/simple-sidebar.css">
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    @yield('style')
 
-    <style>
-        
-    </style>
 </head>
 <body>
-
     <div id="wrapper" class="fixed-top">
         <!-- Sidebar -->
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav english">
                 
                 <li class="sidebar-brand mb-5">
-                   <img src="{{ asset('logo.png') }}" alt="hello" width="250" height="150">
+                   <img src="{{ asset('img/logo.png') }}" alt="hello" width="250" height="150">
                 </li>
                 <hr>
                 <div class="slide-scroll">
@@ -58,7 +55,6 @@
     <div class="container-fluid mt-5 container-scroll" id="style-1">
         @yield('content')
     </div>               
-
     <script src="js/jquery.js"></script>
     <script src="js/popper.js"></script>
     <script src="js/bootstrap_4.js"></script>
