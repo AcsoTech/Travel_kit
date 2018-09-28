@@ -24,3 +24,6 @@ Route::get('/room',function(){
 
 });
 
+Route::get('/review',function(){
+    return view('hotel.review');
+});
