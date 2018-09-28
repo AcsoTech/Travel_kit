@@ -9,7 +9,7 @@
          background-size: cover;
          overflow: hidden;
     }
-    .card-img-top {
+    .card-hotel-image {
         width: 500px;
         height: 350px;
     }
@@ -20,7 +20,11 @@
     }
 
     .card-title {
-        font-size: px;
+        font-size: 25px;
+    }
+    
+    .location-link {
+        font-size: 14px;
     }
 }
 
@@ -31,17 +35,34 @@
         background-size: cover;
         overflow:hidden;
     }
-    .card-img-top {
+    .card-hotel-image {
         width: 200px;
         height: 200px;
     }
     .card-body{
         font-size:12px;
-        line-height: 0.1;
+        /* line-height: 0.1; */
     }
     .card-title{
         font-size:14px;
     }
+
+    .location-link {
+        font-size: 10px;
+         line-height: 1.4;
+    }
+}
+
+.card-link{
+    font-family: Cambria;
+    font-size: 16px;
+    color:white;
+}
+
+.card-link:hover {
+    text-decoration: none;
+    color:white;
+    font-weight: bold;
 }
 
 .logo-text{
@@ -55,7 +76,6 @@
     color:white;
     font-weight: bold;
 }
-
 
 .slide-scroll{
     display:block;
