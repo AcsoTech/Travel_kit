@@ -130,7 +130,7 @@
         </div>
     </div>
     <div class="modal fade" id="myModal">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog model-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -157,7 +157,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="card bg-light col">  
+                         <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
                                 Mr.Aung Nyi Thit
@@ -173,7 +173,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="card bg-light col">  
+                         <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
                                 Mr.Sai Yan Naing 
@@ -189,7 +189,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="card bg-light col">  
+                         <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
                                 Mr.Htet Htet Kyaw 
@@ -205,7 +205,7 @@
                                 </p>
                             </div>
                         </div>
-                        <div class="card bg-light col">  
+                         <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
                                 Mr.Nay Chi Thit
@@ -225,44 +225,9 @@
                 </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <input class="form-control" type="text"  placeholder="Write Something ..." 
-                    data-toggle="modal" data-target="#comment">
-                    <!-- <button class="btn btn-success mr-5" data-toggle="modal" data-target="#comment">Comment</button> -->
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
-
-    <div class="modal fade" id="comment">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title text-muted">Comment</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                
-                  
-                <div class="modal-body">
-                    <form action="" class="english bg-white">
-                        <div class="form-group">
-                        <label for="address">Address:</label>
-                        <input type="text" class="form-control" id="address" placeholder="Enter address" name="email">
-                        </div>
-                        <div class="form-group">
-                        <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="8" id="comment" placeholder="Write Something ..."></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-block btn-primary">Post</button>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
-                </div>
-        
-            </div>
-        </div>
-    </div>
-   
-    
 @endsection
