@@ -130,7 +130,7 @@
         </div>
     </div>
     <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
+        <div class="modal-dialog model-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="modal-header">
@@ -140,13 +140,13 @@
                 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <div class="model-scroll">
+                    <div class="model-scroll" id="style-1">
                         <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
-                                Mr.kyawsonaung
+                                Mr.kyawsonaung 
                                 </p>
-                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (4 day ago)</p>
                                 <p>
                                     Badges are used to add additional information to 
                                     any content. Use the .badge class together
@@ -160,9 +160,9 @@
                          <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
-                                Mr.kyawsonaung
+                                Mr.Aung Nyi Thit
                                 </p>
-                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon  (1 day ago)</p>
                                 <p>
                                     Badges are used to add additional information to 
                                     any content. Use the .badge class together
@@ -176,9 +176,9 @@
                          <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
-                                Mr.kyawsonaung
+                                Mr.Sai Yan Naing 
                                 </p>
-                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (2 day ago)</p>
                                 <p>
                                     Badges are used to add additional information to 
                                     any content. Use the .badge class together
@@ -192,9 +192,9 @@
                          <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
-                                Mr.kyawsonaung
+                                Mr.Htet Htet Kyaw 
                                 </p>
-                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (3 m ago)</p>
                                 <p>
                                     Badges are used to add additional information to 
                                     any content. Use the .badge class together
@@ -208,9 +208,9 @@
                          <div class="card bg-light col">  
                             <div class="card-body">
                                 <p class="text-dark text-uppercase card-title font-weight-bold">
-                                Mr.kyawsonaung
+                                Mr.Nay Chi Thit
                                 </p>
-                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon  (5 hr ago)</p>
                                 <p>
                                     Badges are used to add additional information to 
                                     any content. Use the .badge class together
