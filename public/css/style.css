@@ -29,25 +29,21 @@
         line-height: 1.4;
     }
 
-    .card-titles {
+    .card-title {
         font-size: 25px;
     }
     
-    .location {
+    .location-link {
         font-size: 14px;
     }
 
-    /* .btn-rev{
-        padding: 10px 20px;
-        font-size: 20px;
-        border-radius: 10px;
-        width:20%;
-        font-weight: 400;
-        color: #007bff;
-        background-color: transparent;
-    } */
+    .model-scroll {
+        display: block;
+        max-height: 400px;
+        overflow-y: auto;
+        margin-left: 3px;
+    }
 }
-/* end for pc */
 
 @media (max-width: 768px) {
     body{
@@ -72,28 +68,36 @@
     }
     
     .card-body{
-        font-size:12px;
-        /* line-height: 0.1; */
-    }
-    .card-titles{
         font-size:14px;
+        /* line-height: 1.4; */
+    }
+    .card-title{
+        font-size:13px;
     }
 
-    .location{
+    .location-link {
         font-size: 10px;
          line-height: 1.4;
     }
-    /* .btn-rev{
-        padding: 1px 2px;
-        font-size: 10px;
-        border-radius: 5px;
-        width:30%;
-        font-weight: 400;
-        color: #007bff;
-        background-color: transparent;
-    } */
+
+    .model-scroll {
+        display: block;
+        max-height: 450px;
+        overflow-y: auto;
+        margin-left: 3px;
+     }
 }
-/* end for mobile */
+
+@media (max-width: 350px) {
+
+    .model-scroll {
+        display: block;
+        max-height: 340px;
+        overflow-y: auto;
+        margin-left: 3px;
+    }
+}
+
 .card-link{
     font-family: Cambria;
     font-size: 16px;
@@ -132,13 +136,6 @@
     margin-left: 3px;
 }
 
-.model-scroll{
-    display: block;
-    max-height: 400px;
-    overflow-y: auto;
-    margin-left: 3px;
-}
-
 #style-1::-webkit-scrollbar {
     width: 6px;
     background-color: #F5F5F5;
@@ -156,4 +153,10 @@
 .li-title{
     font-size:12px;
     color:silver;
+}
+
+.fixed_button {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
 }
