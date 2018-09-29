@@ -36,72 +36,33 @@
 
 @section('content')
     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
+        <div class="card col" style="width:28rem;">
+            <a href="{{url('/room')}}" class="card-link"> 
             <div class="row mb-1">
+                
                 <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+
                 <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
+                        <p class="text-primary card-titles">Bangan King Hotel &nbsp;
                         3 <i class="fa fa-star text-warning"></i>
                     </p>
-                    <a href="" class="location-link">
+                    <p class="location text-primary">
                         <i class="fa fa-location-arrow"></i>
                         No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
                         Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
+                    </p>
                     <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
                     <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
                     <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
                     <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
-                </div>
+                </div>  
+            </div>
+            </a>
+            <div class="card-footer">
+                <a href="{{ url('/review') }}" class="">Review &nbsp;<i class="fa fa-thumb"></i></a>
             </div>
         </div>
-       
     </div>
-     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
-            <div class="row mb-1">
-                <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                        3 <i class="fa fa-star text-warning"></i>
-                    </p>
-                    <a href="" class="location-link">
-                        <i class="fa fa-location-arrow"></i>
-                        No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                        Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
-                    <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                    <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                    <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                    <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
-       
-    </div>
-     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
-            <div class="row mb-1">
-                <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                        3 <i class="fa fa-star text-warning"></i>
-                    </p>
-                    <a href="" class="location-link">
-                        <i class="fa fa-location-arrow"></i>
-                        No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                        Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
-                    <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                    <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                    <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                    <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
-                </div>
-            </div>
-        </div>
-       
-    </div>
+   
+    
 @endsection
