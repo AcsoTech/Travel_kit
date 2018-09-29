@@ -2,7 +2,7 @@
     font-family: Cambria;
 }
 
-@media (min-width:1300px) {
+@media (min-width:1025px) and (min-width: 960px) {
     body {
          background-image: url('../img/bg/c.jpg');
          background-repeat: no-repeat;
@@ -43,9 +43,24 @@
         overflow-y: auto;
         margin-left: 3px;
     }
+    .search-box{
+       margin-left:300px;
+       margin-right:300px;
+       margin-top:50px;
+      
+    }
+    /* .btn-rev{
+        padding: 10px 20px;
+        font-size: 20px;
+        border-radius: 10px;
+        width:20%;
+        font-weight: 400;
+        color: #007bff;
+        background-color: transparent;
+    } */
 }
 
-@media (max-width: 768px) {
+@media (max-width: 480px) {
     body{
         background-image: url('../img/bg/a.jpg');
         background-repeat: no-repeat;
@@ -86,9 +101,14 @@
         overflow-y: auto;
         margin-left: 3px;
      }
+    .search-box{
+        margin-top:50px;
+       
+     }
+   
 }
 
-@media (max-width: 350px) {
+@media (min-width: 481px) {
 
     .model-scroll {
         display: block;
@@ -160,3 +180,12 @@
     bottom: 10px;
     right: 10px;
 }
+.block{
+   
+    padding:10px;
+    border:0px solid white;
+    margin :0;
+    background-color:white;
+}
+
+    
