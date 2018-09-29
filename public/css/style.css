@@ -9,11 +9,7 @@
          background-size: cover;
          overflow: hidden;
     }
-<<<<<<< HEAD
-    .hotel-image {
-=======
     .card-hotel-image {
->>>>>>> afcf4a515356f01a1bf8fd7a1cc800b0c6bbbb2f
         width: 500px;
         height: 350px;
     }
@@ -35,13 +31,10 @@
 
     .card-title {
         font-size: 25px;
-<<<<<<< HEAD
-=======
     }
     
     .location-link {
         font-size: 14px;
->>>>>>> afcf4a515356f01a1bf8fd7a1cc800b0c6bbbb2f
     }
 }
 
@@ -52,11 +45,7 @@
         background-size: cover;
         overflow:hidden;
     }
-<<<<<<< HEAD
-    .hotel-image {
-=======
     .card-hotel-image {
->>>>>>> afcf4a515356f01a1bf8fd7a1cc800b0c6bbbb2f
         width: 200px;
         height: 200px;
     }
@@ -88,12 +77,12 @@
 .card-link{
     font-family: Cambria;
     font-size: 16px;
-    color:white;
+    color:rgb(27, 11, 245);
 }
 
 .card-link:hover {
     text-decoration: none;
-    color:white;
+    color:rgb(14, 13, 13);
     font-weight: bold;
 }
 
@@ -119,6 +108,13 @@
 .container-scroll {
     display: block;
     max-height: 600px;
+    overflow-y: auto;
+    margin-left: 3px;
+}
+
+.model-scroll{
+    display: block;
+    max-height: 500px;
     overflow-y: auto;
     margin-left: 3px;
 }

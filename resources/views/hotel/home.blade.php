@@ -37,71 +37,197 @@
 @section('content')
     <div class="row mt-3">
         <div class="card col" style="width: 28rem;">
-            <div class="row mb-1">
-                <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                        3 <i class="fa fa-star text-warning"></i>
-                    </p>
-                    <a href="" class="location-link">
-                        <i class="fa fa-location-arrow"></i>
-                        No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                        Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
-                    <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                    <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                    <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                    <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{{ url('/room') }}" class="card-link">
+                <div class="row mb-1">
+                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    <div class="card-body col-6 p-1">
+                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
+                            3 <i class="fa fa-star text-warning"></i>
+                        </p>
+                        <p class="location-link text-primary">
+                            <i class="fa fa-location-arrow"></i>
+                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
+                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
+                        </p>
+                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
+                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
+                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
+                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
+                    </div>
                 </div>
+            </a>
+            
+            <div class="card-footer bg-white">
+                 <a href="{{ url('/review') }}" class="float-left card-link">
+                    4 Like &nbsp;<i class="fa fa-heart-o"></i>
+                </a>
+                  <a href="#" class="float-right card-link" data-toggle="modal" data-target="#myModal">
+                    6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
+                </a>
             </div>
         </div>
-       
     </div>
      <div class="row mt-3">
         <div class="card col" style="width: 28rem;">
-            <div class="row mb-1">
-                <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                        3 <i class="fa fa-star text-warning"></i>
-                    </p>
-                    <a href="" class="location-link">
-                        <i class="fa fa-location-arrow"></i>
-                        No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                        Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
-                    <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                    <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                    <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                    <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{{ url('/room') }}" class="card-link">
+                <div class="row mb-1">
+                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    <div class="card-body col-6 p-1">
+                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
+                            3 <i class="fa fa-star text-warning"></i>
+                        </p>
+                        <p class="location-link text-primary">
+                            <i class="fa fa-location-arrow"></i>
+                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
+                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
+                        </p>
+                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
+                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
+                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
+                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
+                    </div>
                 </div>
+            </a>
+            <div class="card-footer bg-white">
+                 <a href="{{ url('/review') }}" class="float-left card-link">
+                    4 Like &nbsp;<i class="fa fa-heart-o"></i>
+                </a>
+                <a href="#" class="float-right card-link" data-toggle="modal" data-target="#myModal">
+                    6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
+                </a>
             </div>
         </div>
-       
     </div>
      <div class="row mt-3">
         <div class="card col" style="width: 28rem;">
-            <div class="row mb-1">
-                <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                <div class="card-body col-6 p-1">
-                    <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                        3 <i class="fa fa-star text-warning"></i>
-                    </p>
-                    <a href="" class="location-link">
-                        <i class="fa fa-location-arrow"></i>
-                        No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                        Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                    </a>
-                    <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                    <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                    <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                    <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    <a href="" class="float-right mr-5">Reviews &nbsp;<i class="fa fa-angle-right"></i></a>
+            <a href="{{ url('/room') }}" class="card-link">
+                <div class="row mb-1">
+                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    <div class="card-body col-6 p-1">
+                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
+                            3 <i class="fa fa-star text-warning"></i>
+                        </p>
+                        <p class="location-link text-primary">
+                            <i class="fa fa-location-arrow"></i>
+                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
+                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
+                        </p>
+                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
+                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
+                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
+                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
+                    </div>
+                </div>
+            </a>
+            <div class="card-footer bg-white">
+                <a href="{{ url('/review') }}" class="float-left card-link">
+                    4 Like &nbsp;<i class="fa fa-heart-o"></i>
+                </a>
+                <a href="#" class="float-right card-link" data-toggle="modal" data-target="#myModal">
+                    6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <p class="modal-title card-title">Hotel Reviews</p>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="model-scroll">
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                         <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                         <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                         <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                         <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
-       
     </div>
 @endsection

@@ -1,31 +1,107 @@
 @extends('layouts.default')
+<style>
+    .container-scroll{
+        background-color:white;
+        height:100%;
+    }
+</style>
+@section('slide')
+    <div class="li-title ml-3">Hotel</div>
+    <li>
+    <a href="{{ url('/room') }}">Hotel</a>
+    </li>
+    <li>
+        <a href="">2</a>
+    </li>
+    <li>
+        <a href="#">3</a>
+    </li>
+    <hr>
+    <div class="li-title ml-3">Service</div>
+    <li>
+        <a href="#">A</a>
+    </li>
+    <li>
+        <a href="#">B</a>
+    </li>
+    <li>
+        <a href="#">Address</a>
+    </li>
+    <li>
+        <a href="#">C</a>
+    </li>
+@endsection
 @section('content')
-<div class="container english">
-   
-        <div class="card col mt-2">  
+    <div class="row mt-3">
+        <div class="card bg-light col">  
             <div class="card-body">
-                <h5 class="text-primary">
-                    One of the best hotel in Myanmar!
-                        <b class="float-right">10</b>
-                </h5>
-                <p>Reviewed September 24,2018</p>
-                <hr>
-                <p>Had a great Stay.<p>
-                <p>Especially staffs 
-                were so nice and cool!!! </p><p>Breakfast was nice!!!</p>
-                <p><i class="fa fa-rebel text-faded"></i>  Kazutaka/Japan/Couple</p>
-                <p> <i class="fa fa-bed text-faded"></i>  Stayed 2 nights in September 2018</p>
-                <hr>
-                <p class="table-bordered p-5">
-                
+                <p class="text-dark text-uppercase card-title font-weight-bold">
+                   Mr.kyawsonaung
+                </p>
+                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                <p>
+                    Badges are used to add additional information to 
+                    any content. Use the .badge class together
+                    with a contextual class (like .badge-secondary) 
+                    within <span> elements to create rectangular badges.
+                    Note that badges scale to match the size of the
+                    parent element (if any):
                 </p>
             </div>
-            
-            
-        </div>
-        
-        
-    
-    
-</div>
+       </div>
+    </div>
+     <div class="row mt-3">
+        <div class="card bg-light col">  
+            <div class="card-body">
+                <p class="text-dark text-uppercase card-title font-weight-bold">
+                   Mr.kyawsonaung
+                </p>
+                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                <p>
+                    Badges are used to add additional information to 
+                    any content. Use the .badge class together
+                    with a contextual class (like .badge-secondary) 
+                    within <span> elements to create rectangular badges.
+                    Note that badges scale to match the size of the
+                    parent element (if any):
+                </p>
+            </div>
+       </div>
+    </div>
+     <div class="row mt-3">
+        <div class="card bg-light col">  
+            <div class="card-body">
+                <p class="text-dark text-uppercase card-title font-weight-bold">
+                   Mr.kyawsonaung
+                </p>
+                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon</p>
+                <p>
+                    Badges are used to add additional information to 
+                    any content. Use the .badge class together
+                    with a contextual class (like .badge-secondary) 
+                    within <span> elements to create rectangular badges.
+                    Note that badges scale to match the size of the
+                    parent element (if any):
+                </p>
+            </div>
+       </div>
+    </div>
+     <div class="row mt-3">
+        <div class="card bg-light col">  
+            <div class="card-body">
+                <p class="text-primary card-title">
+                    One of the best hotel in Myanmar!
+                </p>
+                <p>
+                    Badges are used to add additional information to 
+                    any content. Use the .badge class together
+                    with a contextual class (like .badge-secondary) 
+                    within <span> elements to create rectangular badges.
+                    Note that badges scale to match the size of the
+                    parent element (if any):
+                </p>
+            </div>
+       </div>
+    </div>
+   
 @endsection
