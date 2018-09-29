@@ -212,7 +212,7 @@
                                 </p>
                                 <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon  (5 hr ago)</p>
                                 <p>
-                                    Badges are used to add additional information to 
+                                    Badgessss are used to add additional information to 
                                     any content. Use the .badge class together
                                     with a contextual class (like .badge-secondary) 
                                     within <span> elements to create rectangular badges.
