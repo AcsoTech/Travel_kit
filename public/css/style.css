@@ -167,4 +167,16 @@
     background-color:white;
 }
 
+ .noradius{
+    border-radius:1px;
+ }   
+ .showmore{
+     border:1px solid blue;
+    text-align:center;
     
+    text-decoration: none;
+ }
+ .showmore:hover {
+    text-decoration: none;
+    
+}

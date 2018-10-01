@@ -7,7 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/bootstrap_4.css">
     <link rel="stylesheet" href="css/simple-sidebar.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/admin.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('style')
 

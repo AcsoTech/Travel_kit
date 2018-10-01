@@ -28,3 +28,7 @@ Route::get('/review',function(){
     return view('hotel.review');
 });
 
+Route::get('/admin','admin\adminController@index');
+
+Route::get('/admin/create','admin\adminController@create');
+  
