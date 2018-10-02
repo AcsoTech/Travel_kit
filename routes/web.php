@@ -28,12 +28,7 @@ Route::get('/review',function(){
     return view('hotel.review');
 });
 
-Route::get('/admin','admin\adminController@index');
+Route::prefix('admin')->group(function () {
 
-Route::get('/admin/create','admin\adminController@create');
-Route::post('/admin/create','admin\adminController@store');
-Route::get('/admin/create','admin\adminController@show');
-Route::get('/admin/delete/{id}','admin\adminController@delete');
-Route::get('/admin/edit/{id}','admin\adminController@edit');
-Route::post('/admin/update/{id}','admin\adminController@update');
-
+    Route::resource('city','Admin\CityController');
+});

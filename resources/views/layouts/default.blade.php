@@ -61,9 +61,9 @@
     <div class="container-fluid mt-5 container-scroll" id="style-1">
         @yield('content')
     </div>               
-    <script src="js/jquery.js"></script>
-    <script src="js/popper.js"></script>
-    <script src="js/bootstrap_4.js"></script>
+    <script src="{{ asset('js/jquery.js') }}"></script>
+    <script src="{{ asset('js/popper.js') }}"></script> 
+    <script src="{{ asset('js/bootstrap_4.js') }}"></script> 
     <script>
         $("#menu-toggle").click(function(e) {
             e.preventDefault();
