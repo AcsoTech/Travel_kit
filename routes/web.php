@@ -30,8 +30,7 @@ Route::get('/review',function(){
 
 Route::prefix('admin')->group(function () {
 
+    Route::get('/','Admin\AdminController@home')->name('admin.home');
     Route::resource('city','Admin\CityController');
-    Route::resource('/','Admin\AdminController');
-    Route::resource('/destination','Admin\DestinationController');
-
+    Route::resource('destination','Admin\DestinationController');
 });

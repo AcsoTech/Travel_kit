@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class Destination extends Model
 {
-    protected $fillable=['name','img','detail'];
+    protected $fillable =['place', 'profile', 'images', 'description'];
 }

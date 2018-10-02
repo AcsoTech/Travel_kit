@@ -2,11 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use App\Http\Requests\DestinaitonInsertFormRequest;
+use App\Http\Controllers\Controller;
 use App\Model\Admin\Destination;
-
 class DestinationController extends Controller
 {
     /**
@@ -15,9 +13,9 @@ class DestinationController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {    
-         $dest=Destination::all();
-        return view('admin.destination.index',compact('dest'));
+    {
+        $dests = Destination::all();
+        return view('admin.destination.index', compact('dests'));
     }
 
     /**
@@ -36,31 +34,56 @@ class DestinationController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(DestinaitonInsertFormRequest $request)
+    public function store(Request $request)
     {
-        
-       $dest=new Destination;
-       $dest->name=$request->name;
-       $dest->detail=$request->detail;
-      
-       $img =uniqid() .'.'.$request->file('img')->getClientOriginalName();
-      
-       $request->file('img')->move(base_path().'/public/uploads',$img);
-       
-        $dest->img= $img;
-        $dest->save();
-        return redirect()->route('admin/destination/index')
-        ->with('flash_message','New City create successful.');
-      
+        $request->validate([
+            'place' =>'required',
+            'profile' =>'required',
+            'images' =>'required',
+            'description' =>'required',
+        ]);
+    	$a = $request->profile;
+        $b = $request->images;
+
+            if(isset($a)){
+                $profile_files =$request->file('profile');
+                $profile_name =uniqid() . '_' . $profile_files->getClientOriginalName();
+                $profile_files->move(public_path() . '/uploads/images/admin/destination/profile' , $profile_name);
+            }
+
+          if(isset($b)){
+            $image_files =$request->file('images');
+            $image_array =array();
+            foreach($image_files as $image_file){
+                $image_name =uniqid() . '_' . $image_file->getClientOriginalName();
+                array_push($image_array ,$image_name);
+                $image_file->move(public_path() . '/uploads/images/admin/destination/gallery' , $image_name);
+            }
+        $destination =new Destination ;
+        $destination->place = $request->place;
+         $destination->description = $request->description;
+        if(isset($a)){
+            $destination->profile =$profile_name;
+        }
+        if(isset($b)){
+            $destination->images =serialize($image_array);
+        }
+        $destination->save();
+
+        return redirect()->route('destination.index')
+        ->with('flash_message','New Destination create successfull');
+        }
+
+
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Model\Admin\Destination  $destination
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Destination $destination)
+    public function show($id)
     {
         //
     }
@@ -68,10 +91,10 @@ class DestinationController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Model\Admin\Destination  $destination
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Destination $destination)
+    public function edit($id)
     {
         //
     }
@@ -80,10 +103,10 @@ class DestinationController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Model\Admin\Destination  $destination
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Destination $destination)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -91,10 +114,10 @@ class DestinationController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Model\Admin\Destination  $destination
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Destination $destination)
+    public function destroy($id)
     {
         //
     }
