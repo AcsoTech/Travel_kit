@@ -31,4 +31,6 @@ Route::get('/review',function(){
 Route::prefix('admin')->group(function () {
 
     Route::resource('city','Admin\CityController');
+    Route::resource('/','Admin\AdminController');
+
 });
