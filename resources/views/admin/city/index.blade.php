@@ -1,4 +1,7 @@
-@extends('layouts.default')
+@extends('layouts.master')
+@section('slide')
+    @include('layouts.adminslide')
+@endsection
 @section('content')
     <div class="col-md-8 offset-2">
         @foreach ($errors->all() as $message)

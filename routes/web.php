@@ -32,5 +32,6 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('city','Admin\CityController');
     Route::resource('/','Admin\AdminController');
+    Route::resource('/destination','Admin\DestinationController');
 
 });
