@@ -97,7 +97,7 @@
 
     .model-scroll {
         display: block;
-        max-height: 450px;
+        max-height: 400px;
         overflow-y: auto;
         margin-left: 3px;
      }

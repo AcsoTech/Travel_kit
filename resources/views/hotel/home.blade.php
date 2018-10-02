@@ -257,7 +257,7 @@
                         </div>
                         <div class="form-group">
                         <label for="comment">Comment:</label>
-                        <textarea class="form-control" rows="8" id="comment" placeholder="Write Something ..."></textarea>
+                        <textarea class="form-control" rows="7" id="comment" placeholder="Write Something ..."></textarea>
                         </div>
                         <button type="submit" class="btn btn-block btn-primary">Post</button>
                     </form>
