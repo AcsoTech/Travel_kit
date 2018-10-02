@@ -1,5 +1,16 @@
 body {
     
-    
-    background-color:green;
+    background-color:#4C9DDC;
+}
+
+.li-title{
+    font-size:12px;
+    color:silver;
+}
+a{
+    font-size:12px;
+    color:silver;
+}
+.english{
+    font-family: Cambria;
 }

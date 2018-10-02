@@ -3,6 +3,7 @@
 
 @section('slide')
     <div class="li-title ml-3">Admin panel</div>
+    
     <li>
         <a href="{{ asset('/admin/create') }}">Create City</a>
     </li>
@@ -29,6 +30,7 @@
     <li>
         <a href="#">Contact</a>
     </li>
+
 @endsection
 @section('content')
     <div class="jumbotron text-center mt-5">
