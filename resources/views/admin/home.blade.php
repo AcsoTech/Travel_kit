@@ -1,13 +1,4 @@
-@extends('layouts.default')
-
-@section('slide')
-<li>
-    <a href="{{ route('city.index') }}">City</a>
-</li>
-<li>
-    <a href="{{ route('destination.index') }}">Destination</a>
-</li>
-@endsection
+@extends('layouts.master')
 
 @section('content')
     <div class="col-md-8 offset-2">
