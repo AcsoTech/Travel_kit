@@ -5,6 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Model\Admin\Destination;
+use Illuminate\Support\Facades\Storage;
+use App\File;
+use Image;
+
 class DestinationController extends Controller
 {
     /**
@@ -14,7 +18,7 @@ class DestinationController extends Controller
      */
     public function index()
     {
-        $dests = Destination::all();
+        $dests = Destination::paginate(9);
         return view('admin.destination.index', compact('dests'));
     }
 
@@ -37,46 +41,94 @@ class DestinationController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'place' =>'required',
-            'profile' =>'required',
-            'images' =>'required',
+            'title' =>'required',
+            'avatar' =>'required',
             'description' =>'required',
         ]);
-    	$a = $request->profile;
-        $b = $request->images;
 
-            if(isset($a)){
-                $profile_files =$request->file('profile');
-                $profile_name =uniqid() . '_' . $profile_files->getClientOriginalName();
-                $profile_files->move(public_path() . '/uploads/images/admin/destination/profile' , $profile_name);
+        if($request->hasFile('avatar')) {
+
+            $avatar_file = $request->avatar;
+
+            //get filename with extension
+            $filenamewithextension_1= $avatar_file->getClientOriginalName();
+
+            //get filename without extension
+            $filename_1 = pathinfo($filenamewithextension_1, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension_1 = $avatar_file->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore_1 = $filename_1.'_'.uniqid().'.'.$extension_1;
+
+            Storage::put('public/destination/cover/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+            Storage::put('public/destination/cover/thumbnail/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+
+            //Resize image here
+            $thumbnailpath_1 = public_path('storage/destination/cover/thumbnail/'.$filenametostore_1);
+            // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+
+            $img_1 = Image::make($thumbnailpath_1)->resize(400, 250);
+
+            $img_1->save($thumbnailpath_1);
+
+        }else{
+            $filenametostore_1 = 'destination_no_media.jpg';
+        }
+
+        //for all image file name to store database
+        $filename_array =array(); 
+
+        if($request->hasFile('images')) {
+         
+            foreach($request->file('images') as $file){
+    
+                //get filename with extension
+                $filenamewithextension = $file->getClientOriginalName();
+    
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+                //get file extension
+                $extension = $file->getClientOriginalExtension();
+    
+                //filename to store
+                $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+                array_push($filename_array ,$filenametostore);
+    
+                Storage::put('public/destination/gallery/'. $filenametostore, fopen($file, 'r+'));
+                Storage::put('public/destination/gallery/thumbnail/'. $filenametostore, fopen($file, 'r+'));
+    
+                //Resize image here
+                $thumbnailpath = public_path('storage/destination/gallery/thumbnail/'.$filenametostore);
+                // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                //     $constraint->aspectRatio();
+                // });
+                $img = Image::make($thumbnailpath)->resize(400, 250);
+
+                $img->save($thumbnailpath);
             }
 
-          if(isset($b)){
-            $image_files =$request->file('images');
-            $image_array =array();
-            foreach($image_files as $image_file){
-                $image_name =uniqid() . '_' . $image_file->getClientOriginalName();
-                array_push($image_array ,$image_name);
-                $image_file->move(public_path() . '/uploads/images/admin/destination/gallery' , $image_name);
-            }
-        $destination =new Destination ;
-        $destination->place = $request->place;
-         $destination->description = $request->description;
-        if(isset($a)){
-            $destination->profile =$profile_name;
-        }
-        if(isset($b)){
-            $destination->images =serialize($image_array);
-        }
-        $destination->save();
-
-        return redirect()->route('destination.index')
-        ->with('flash_message','New Destination create successfull');
+        }else{
+            array_push($filename_array ,'destination_no_media.jpg');
         }
 
+        $dest = new Destination;
 
+        $dest->title = $request->title;
+        $dest->avatar = $filenametostore_1;
+        $dest->images = serialize($filename_array);
+        $dest->description =$request->description;
+        $dest->selection = $request->check;
+        $dest->save();
+        
+        return redirect()->route('destination.index')-> 
+        with('flash_message', 'New Destination upload successful');   
     }
-
     /**
      * Display the specified resource.
      *
@@ -85,7 +137,8 @@ class DestinationController extends Controller
      */
     public function show($id)
     {
-        //
+        $dest =Destination::find($id);
+        return view('admin.destination.show', compact('dest'));
     }
 
     /**
@@ -96,7 +149,7 @@ class DestinationController extends Controller
      */
     public function edit($id)
     {
-        //
+        
     }
 
     /**
@@ -108,7 +161,96 @@ class DestinationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' =>'required',
+            'description' =>'required',
+        ]);
+
+        $dest = Destination::find($id);
+        $dest->title = $request->title;
+        $dest->description =$request->description;
+        $dest->selection = $request->check;
+
+        if($request->hasFile('avatar')) {
+
+            $avatar_file = $request->avatar;
+
+            //get filename with extension
+            $filenamewithextension_1= $avatar_file->getClientOriginalName();
+
+            //get filename without extension
+            $filename_1 = pathinfo($filenamewithextension_1, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension_1 = $avatar_file->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore_1 = $filename_1.'_'.uniqid().'.'.$extension_1;
+
+            Storage::put('public/destination/cover/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+            Storage::put('public/destination/cover/thumbnail/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+
+            //Resize image here
+            $thumbnailpath_1 = public_path('storage/destination/cover/thumbnail/'.$filenametostore_1);
+            // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+
+            $img_1 = Image::make($thumbnailpath_1)->resize(400, 250);
+
+            $img_1->save($thumbnailpath_1);
+
+            Storage::delete('public/destination/cover/' . $dest->avatar );
+            Storage::delete('public/destination/cover/thumbnail/' . $dest->avatar );
+
+            $dest->avatar = $filenametostore_1;
+
+        }
+
+        //for all image file name to store database
+        $filename_array =array(); 
+
+        if($request->hasFile('images')) {
+         
+            foreach($request->file('images') as $file){
+    
+                //get filename with extension
+                $filenamewithextension = $file->getClientOriginalName();
+    
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+                //get file extension
+                $extension = $file->getClientOriginalExtension();
+    
+                //filename to store
+                $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+                array_push($filename_array ,$filenametostore);
+    
+                Storage::put('public/destination/gallery/'. $filenametostore, fopen($file, 'r+'));
+                Storage::put('public/destination/gallery/thumbnail/'. $filenametostore, fopen($file, 'r+'));
+    
+                //Resize image here
+                $thumbnailpath = public_path('storage/destination/gallery/thumbnail/'.$filenametostore);
+                // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                //     $constraint->aspectRatio();
+                // });
+                $img = Image::make($thumbnailpath)->resize(400, 250);
+
+                $img->save($thumbnailpath);
+            }
+            foreach( unserialize($dest->images) as $img){
+                Storage::delete('public/destination/gallery/' . $img );
+                Storage::delete('public/destination/gallery/thumbnail/' . $img );
+            }
+
+            $dest->images = serialize($filename_array);
+        }
+        
+        $dest->save();
+        return redirect()->route('destination.show' , $dest->id)-> 
+        with('flash_message', 'Destination update successful');   
     }
 
     /**
@@ -119,6 +261,20 @@ class DestinationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $dest = Destination::find($id);
+
+        Storage::delete('public/destination/cover/' . $dest->avatar );
+        Storage::delete('public/destination/cover/thumbnail/' . $dest->avatar );
+
+        foreach( unserialize($dest->images) as $img){
+            Storage::delete('public/destination/gallery/' . $img );
+            Storage::delete('public/destination/gallery/thumbnail/' . $img );
+        }
+
+
+        $dest->delete();
+
+        return redirect()->route('destination.index')-> 
+        with('flash_message', 'Old Destination  delete successful');
     }
 }

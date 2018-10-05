@@ -4,11 +4,29 @@
 
 @media (min-width:1025px) and (min-width: 960px) {
     body {
-         background-image: url('../img/bg/c.jpg');
+         /* background-image: url('../img/bg/c.jpg'); */
+         background-color: rgba(72, 167, 255, 0.877);
          background-repeat: no-repeat;
          background-size: cover;
-         overflow: hidden;
+         /* overflow: hidden; */
     }
+
+    .profile-img:hover {
+        z-index: 2;
+        -webkit-transition: all 200ms ease-in;
+        -webkit-transform: scale(1.5);
+        -ms-transition: all 200ms ease-in;
+        -ms-transform: scale(1.5);
+        -moz-transition: all 200ms ease-in;
+        -moz-transform: scale(1.5);
+        transition: all 200ms ease-in;
+        transform: scale(1.05);
+    }
+
+    .bg-blue{
+        background-color: rgba(72, 167, 255, 0.877);
+    }
+
     .card-hotel-image {
         width: 500px;
         height: 350px;
@@ -62,11 +80,17 @@
 
 @media (max-width: 480px) {
     body{
-        background-image: url('../img/bg/a.jpg');
+         /* background-image: url('../img/bg/b.jpg'); */
+        background-color: rgba(72, 167, 255, 0.877);
         background-repeat: no-repeat;
         background-size: cover;
-        overflow:hidden;
+        /* overflow:hidden; */
     }
+
+    .bg-blue {
+        background-color: rgba(72, 167, 255, 0.877);
+    }
+    
     .card-hotel-image {
         width: 200px;
         height: 200px;
@@ -151,7 +175,7 @@
 }
 .container-scroll {
     display: block;
-    max-height: 600px;
+    max-height: 500px;
     overflow-y: auto;
     margin-left: 3px;
 }
@@ -198,6 +222,5 @@
     text-decoration: none;
  }
  .showmore:hover {
-    text-decoration: none;
-    
+    text-decoration: none; 
 }
