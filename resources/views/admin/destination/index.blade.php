@@ -36,7 +36,7 @@
       
             <div class="row">
                   @foreach ($dests as $dest)
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
+            <div class="card col-lg-4 col-md-6 col-sm-12 noradius" style="background-color:#D3D3D3">
                 <div class="row">
                     <div class="card-text col-5">
                         <img class="card-img-top" src="{{asset('/uploads/images/admin/destination/profile/' . $dest->profile )}}" alt="Card image cap">
@@ -44,7 +44,21 @@
                     <div class="card-text col-7 text-muted">
                         <h5>{{$dest->place}}</h5>
                         <p>{{ $dest->description }}</p>
+                        <p><a href="#">Detail</a></p>
+                        <div class="form-group">
+                            <div class="row">
+                            {!! Form::open(['method' => 'EDIT', 'route' => ['destination.edit', $dest->id] ]) !!}
+                                {!! Form::submit('Edit', ['class' => 'btn btn-primary btn-sm m-1']) !!}
+                                {!! Form::close() !!} 
+                                
+                                    {!! Form::open(['method' => 'DELETE', 'route' => ['destination.destroy', $dest->id] ]) !!}
+                                    {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm m-1']) !!}
+                                    {!! Form::close() !!} 
+                            </div>
+                        
+                        </div>
                     </div>
+                    
                 </div>
             </div>
                @endforeach
