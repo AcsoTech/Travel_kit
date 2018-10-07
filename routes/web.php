@@ -11,9 +11,16 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'User\WelcomeController@home')->name('welcome');
+
+//All destination 
+Route::get('/dest', 'User\WelcomeController@dest')->name('dest.index');
+
+//destination detail show 
+Route::get('/dest/{id}','User\WelcomeController@dest_show')->name('dest.show');
+
+
+
 
 Route::get('/hotel', function () {
     return view('hotel.home');
@@ -32,5 +39,6 @@ Route::prefix('admin')->group(function () {
 
     Route::get('/','Admin\AdminController@home')->name('admin.home');
     Route::resource('city','Admin\CityController');
-     Route::resource('destination','Admin\DestinationController');
+    Route::resource('destination','Admin\DestinationController');
+    Route::resource('room','Admin\RoomController');
 });

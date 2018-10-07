@@ -32,7 +32,7 @@
 
         <!-- Page Content -->
         <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-sm bg-default">
+            <nav class="navbar navbar-expand-md navbar-dark">
             <!-- Links -->
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -43,13 +43,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="logo-text" href="/">Taveller's Kit</a><br>&nbsp;
-                        <i class="fa fa-fighter-jet fa-lg  text-danger"></i>
-                        <i class="fa fa-fighter-jet fa-lg  text-success"></i>
-                        <i class="fa fa-fighter-jet fa-lg  text-dark"></i>
-                       
-                        
-                        
+                        <a class="logo-text text-dark" href="/">Taveller's Kit</a><br>
                     </li>
                 </ul>
             </nav>
@@ -58,7 +52,8 @@
 
     </div>
     <!-- /#wrapper -->
-    <div class="container-fluid mt-5 container-scroll" id="style-1">
+    {{-- <div class="container-fluid mt-5 container-scroll" id="style-1"> --}}
+    <div class="container-fluid mt-5">
         @yield('content')
     </div>               
     <script src="{{ asset('js/jquery.js') }}"></script>

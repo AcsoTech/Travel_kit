@@ -6,69 +6,78 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap_4.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/simple-sidebar.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('style')
-
+    <style>
+        .profile-img:hover{
+            z-index: 2;
+            -webkit-transition: all 5s ease-in;
+            -webkit-transform: scale(1.5);
+            -ms-transition: all 200ms ease-in;
+            -ms-transform: scale(1.5);
+            -moz-transition: all 200ms ease-in;
+            -moz-transform: scale(1.5);
+            transition: all 2s ease-in;
+            transform: scale(1.2);
+        }
+    </style>
 </head>
 <body>
-    <div id="wrapper" class="fixed-top">
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav english">
-                
-                <li class="sidebar-brand mb-5">
-                   <img src="{{ asset('img/logo.png') }}" alt="hello" width="250" height="150">
+    <nav class="navbar navbar-expand-md bg-info navbar-light fixed-top">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="{{ url()->previous() }}"> <i class="fa fa-arrow-left"></i> &nbsp; Back</a>
                 </li>
-                <hr>
-                <div class="slide-scroll">
-                    @yield('slide')
+                <li class="nav-item">
+                    <a class="nav-link" href="#"></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Link</a>
+                </li>
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Other
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{ route('destination.index') }}">Destination</a>
+                    <a class="dropdown-item" href="{{ route('city.index') }}">City</a>
+                    <a class="dropdown-item" href="{{route('room.index')}}">Room</a>
                 </div>
-
+                </li>
             </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
+        </div>  
+    </nav>
+<br>
 
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <nav class="navbar navbar-expand-sm bg-default">
-            <!-- Links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#menu-toggle" id="menu-toggle"> 
-                            <i class="fa fa-bars text-white"></i>
-                        </a>
-                    <li>
-                </ul>
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="logo-text" href="/">Taveller's Kit</a><br>&nbsp;
-                        <i class="fa fa-fighter-jet fa-lg  text-danger"></i>
-                        <i class="fa fa-fighter-jet fa-lg  text-success"></i>
-                        <i class="fa fa-fighter-jet fa-lg  text-dark"></i>
-                       
-                        
-                        
-                    </li>
-                </ul>
-            </nav>
+<div class="container mt-5">
+    
+    @if(session('flash_message'))
+        <div class="alert alert-success alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Notification</strong> {{ session('flash_message') }}
         </div>
-        <!-- /#page-content-wrapper -->
+    @endif
 
-    </div>
-    <!-- /#wrapper -->
-    <div class="container-fluid mt-5 container-scroll" id="style-1">
-        @yield('content')
-    </div>               
+    @yield('content')
+
+</div>
+
+    @yield('script')
+    <script src="https://cdn.ckeditor.com/4.10.1/full/ckeditor.js"></script>
+    <script>
+			CKEDITOR.replace( 'description' );
+	</script>
     <script src="{{ asset('js/jquery.js') }}"></script>
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap_4.js') }}"></script>
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
 </body>
 </html>

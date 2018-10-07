@@ -65,158 +65,97 @@
     <button type="submit" class="btn btn-primary btn-block">Search</button>
 </div><br>
 
-
-    <div class="col bg-white english">
-        <h5 class="text-muted">Top destination</h5>
-        <div class="row">
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/city/ygn.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Yangon</h5>
-                        <p>3380 properties</p>
-                      </div>
-                  </div>
-            </div>
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/city/mdy.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7  text-muted">
-                        <h5>Mandalay</h5>
-                        <p>2458 properties</p>
-                      </div>
-                   </div>
-            </div>
-            <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5 ">
-                        <img class="card-img-top" src="{{asset('img/city/npt.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Naypyi Taw</h5>
-                        <p>3580 properties</p>
-                      </div>
-                   </div>
+<div class="col bg-white english">
+    <h5 class="text-muted">Top destination</h5>
+    <div class="row">
+        @foreach($dests as $dest)
+            <div class="card col-lg-4 col-md-6 col-sm-12 noradius profile-img">
+                <div class="row">
+                    <div class="card-body col-5">
+                         <a href="{{ route('dest.show' , $dest->id) }}">
+                            <img class="card-img-top" src="{{asset('storage/destination/cover/thumbnail/' . $dest->avatar )}}" 
+                            alt="Card image">
+                        </a>
+                        {{-- <img class="card-img-top" src="{{asset('img/city/ygn.jpg')}}" alt="Card image cap"> --}}
+                    </div>
+                    <div class="card-body col-7 text-muted">
+                        <h5>{{ $dest->title }}</h5>
+                    </div>
+                </div>
             </div>  
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/city/inlay.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Inlay</h5>
-                        <p>3378 properties</p>
-                      </div>
-                  </div>
-            </div>  
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/city/pol.jpeg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7  text-muted">
-                        <h5>Pyi-Oo-Lwin</h5>
-                        <p>3260 properties</p>
-                      </div>
-                   </div>
-            </div>
-            <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5 ">
-                        <img class="card-img-top" src="{{asset('img/city/bagan.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Bagan</h5>
-                        <p>5680 properties</p>
-                      </div>
-                  </div>
-            </div>
-
-            <a href="" class="btn-block showmore text-muted  mt-1">Show More</a>
-        </div><br><br>
-        <h5 class="text-muted">Trending cities</h5>
-        <div class="row">
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                  </div>
-            </div>
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7  text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                   </div>
-            </div>
-            <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5 ">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                   </div>
-            </div>  
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                  </div>
-            </div>  
-            <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7  text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                   </div>
-            </div>
-            <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
-                  <div class="row">
-                      <div class="card-text col-5 ">
-                        <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                      </div>
-                      <div class="card-text col-7 text-muted">
-                        <h5>Malaysia</h5>
-                        <p>3380 properties</p>
-                      </div>
-                  </div>
-            </div>
-
-            <a href="" class="btn-block showmore text-muted  mt-1">Show More</a>
-        </div>
+        @endforeach
     </div>
-    
-    
-       
-  <br><br><br><br><br><br><br><br><br><br><br><br>
-            
-        
-       
- 
+    {{-- <h5 class="text-muted">Trending cities</h5>
+    <div class="row">
+        <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7 text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>
+        <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7  text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>
+        <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5 ">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7 text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>  
+        <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7 text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>  
+        <div class="card col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7  text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>
+        <div class="card  col-lg-4 col-md-6 col-sm-12 noradius">
+                <div class="row">
+                    <div class="card-text col-5 ">
+                    <img class="card-img-top" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    </div>
+                    <div class="card-text col-7 text-muted">
+                    <h5>Malaysia</h5>
+                    <p>3380 properties</p>
+                    </div>
+                </div>
+        </div>
+
+        <a href="" class="btn-block showmore text-muted  mt-1">Show More</a>
+    </div> --}}
+</div>
 
 @endsection

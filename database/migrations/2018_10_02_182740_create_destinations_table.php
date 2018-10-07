@@ -15,10 +15,11 @@ class CreateDestinationsTable extends Migration
     {
         Schema::create('destinations', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('place');
-            $table->string('profile');
+            $table->string('title');
+            $table->string('avatar');
             $table->text('images')->nullable();
             $table->text('description')->nullable();
+            $table->integer('selection')->nullable();
             $table->timestamps();
         });
     }
