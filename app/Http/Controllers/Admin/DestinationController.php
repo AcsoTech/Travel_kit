@@ -66,7 +66,7 @@ class DestinationController extends Controller
             Storage::put('public/destination/cover/thumbnail/'. $filenametostore_1, fopen($avatar_file, 'r+'));
 
             //Resize image here
-            $thumbnailpath_1 = public_path('storage/destination/cover/thumbnail/'.$filenametostore_1);
+             $thumbnailpath_1 = public_path('storage/destination/cover/thumbnail/'.$filenametostore_1);
             // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
             //     $constraint->aspectRatio();
             // });
