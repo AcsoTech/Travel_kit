@@ -200,7 +200,7 @@
 }
 
 .fixed_button {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     right: 10px;
 }
@@ -216,7 +216,7 @@
     border-radius:1px;
  }   
  .showmore{
-     border:1px solid blue;
+    border:1px solid blue;
     text-align:center;
     
     text-decoration: none;

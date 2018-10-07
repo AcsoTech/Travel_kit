@@ -6,21 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap_4.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('style')
-    <style>
-        .profile-img:hover{
-            z-index: 2;
-            -webkit-transition: all 5s ease-in;
-            -webkit-transform: scale(1.5);
-            -ms-transition: all 200ms ease-in;
-            -ms-transform: scale(1.5);
-            -moz-transition: all 200ms ease-in;
-            -moz-transform: scale(1.5);
-            transition: all 2s ease-in;
-            transform: scale(1.8);
-        }
-    </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-md bg-info navbar-light fixed-top">
@@ -34,7 +22,7 @@
                 <a class="nav-link" href="{{ url()->previous() }}"> <i class="fa fa-arrow-left"></i> &nbsp; Back</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#"></a>
+                    <a class="nav-link" href="{{ route('hotel.index') }}">Hotel</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>

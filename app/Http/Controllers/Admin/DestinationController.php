@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Model\Admin\Destination;
 use Illuminate\Support\Facades\Storage;
-use App\File;
 use Image;
+
+use App\Model\Admin\Destination;
 
 class DestinationController extends Controller
 {
@@ -127,7 +127,7 @@ class DestinationController extends Controller
         $dest->save();
         
         return redirect()->route('destination.index')-> 
-        with('flash_message', 'New Destination upload successful');   
+        with('flash_message', 'New Destination create successful');   
     }
     /**
      * Display the specified resource.
