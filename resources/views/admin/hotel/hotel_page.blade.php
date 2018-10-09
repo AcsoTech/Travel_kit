@@ -5,7 +5,7 @@
     <div class="row">
         @foreach($cities as $city)
             <div class="col-3">
-                <a href="{{ route('city.hotel', $city->id) }}" class="link-text">
+                <a href="{{ route('city.show', $city->id) }}" class="link-text">
                     <div class="card text-center bg-primary mt-3">
                         <div class="card-body">
                             <h5 class="card-title">{{ $city->city }}</h5>
@@ -23,6 +23,7 @@
             <tr>
                 <th>Hotel name</th>
                 <th>Hotel address</th>
+                <th>City</th>
                 <th>Normal Price</th>
                 <th>Our Price</th>
                 <th>Star Rate</th>
@@ -34,6 +35,7 @@
             <tr>
             <td>{{ $hotel->name }}</td>
             <td>{{ $hotel->address }}</td>
+            <td>{{ $hotel->city->city }}</td>
             <td>{{ $hotel->normal_price }}</td>
             <td>{{ $hotel->our_price }}</td>
             <td>{{ $hotel->star_rate }}</td>

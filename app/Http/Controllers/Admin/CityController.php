@@ -50,9 +50,10 @@ class CityController extends Controller
      * @param  \App\Model\Admin\City  $city
      * @return \Illuminate\Http\Response
      */
-    public function show(City $city)
+    public function show($id)
     {
-        //
+        $city = City::find($id);
+        return view('admin.hotel.index', compact('city'));
     }
 
     /**

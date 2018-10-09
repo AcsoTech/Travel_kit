@@ -38,11 +38,7 @@ Route::get('/review',function(){
 Route::prefix('admin')->group(function () {
 
     Route::get('/','Admin\AdminController@home')->name('admin.home');
-
-    //for hotel by city 
-    Route::get('/city_hotel/{id}','Admin\HotelController@city_hotel')->name('city.hotel');
-
-
+    
     Route::resource('city','Admin\CityController');
     Route::resource('hotel','Admin\HotelController');
     Route::resource('destination','Admin\DestinationController');
