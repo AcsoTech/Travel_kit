@@ -13,13 +13,12 @@
     <div class="row mt-3">
         <h5 class="text-muted">Destination 
             <a href="#" data-toggle="modal" data-target="#create_dest">  <i class="fa fa-plus-circle fa-lg" ></i></a>
-        
         </h5>
     </div>
 
-    @foreach ($dests->chunk(3) as $chunk_dests)
+    {{-- @foreach ($dests->chunk(3) as $chunk_dests) --}}
         <div class="row mt-3">
-            @foreach ($chunk_dests as $dest)
+            @foreach ($dests as $dest)
                 <div class="card col-4  profile-img">
                     <div class="card-body">
                         <a href="{{asset('storage/destination/cover/' . $dest->avatar )}}">
@@ -36,7 +35,7 @@
                 </div>
             @endforeach
         </div>
-    @endforeach
+    {{-- @endforeach --}}
 
     <div class="row mt-3">
 		<div style="margin: auto; max-width: 300px;">{{ $dests->links() }}</div>
@@ -54,7 +53,7 @@
                 
                 <!-- Modal body -->
                 <div class="modal-body">   
-                {{-- Using the Laravel HTML Form Collective to create our form --}}
+                    {{-- Using the Laravel HTML Form Collective to create our form --}}
                     {{ Form::open(array('route' => 'destination.store','files'=> true))}}
         
                         <div class="form-group">
@@ -86,9 +85,10 @@
                         {{ Form::submit('Create New', array(' class' => 'btn btn-success btn-lg btn-block mt-5')) }}
                         {{ Form::close() }}
                 
-                <!-- Modal footer -->
+                    <!-- Modal footer -->
+                </div>
                 <div class="modal-footer">
-                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Close</button>
                 </div> 
             </div>
         </div>
