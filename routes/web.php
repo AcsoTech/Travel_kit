@@ -46,4 +46,5 @@ Route::prefix('admin')->group(function () {
     Route::resource('city','Admin\CityController');
     Route::resource('hotel','Admin\HotelController');
     Route::resource('destination','Admin\DestinationController');
+    Route::resource('room','Admin\RoomController');
 });
