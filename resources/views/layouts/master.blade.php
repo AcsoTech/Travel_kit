@@ -38,7 +38,7 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('destination.index') }}">Destination</a>
                     <a class="dropdown-item" href="{{ route('city.index') }}">City</a>
-                    <a class="dropdown-item" href="#">Link 3</a>
+                    <a class="dropdown-item" href="{{route('room.index')}}">Room</a>
                 </div>
                 </li>
             </ul>
