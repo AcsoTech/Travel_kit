@@ -1,55 +1,47 @@
 @extends('layouts.master')
 @section('content')
-<div>
-        @foreach ($errors->all() as $message)
-        <div class="alert alert-danger alert-dismissible fade show">
-            <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Invalid !</strong> {{ $message }}
-        </div>
-        @endforeach
+    <div class="row mt-3">
+        <h5 class="text-muted">Create Room
+            <a href="#" data-toggle="modal" data-target="#create_room">  <i class="fa fa-plus-circle fa-lg" ></i></a>
+        
+        </h5>
+    </div>
 
-        @foreach ($rooms as $room)
-        <div class="row mt-3">
-          
-                <div class="card">
-                        <div class="card-body">
-                        <div class="row">
-                            @foreach(unserialize($room->images) as $img)
-                            <div class="col-3 mt-3">
-                            <a href="{{asset('/storage/room/gallery/' . $img )}}">
-                                        <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/room/gallery/thumbnail/' . $img )}}" 
-                                        alt="Card image" width="200" height="200">
-                                    </a>
-                            </div>
-                                    
-                            @endforeach
-                        </div>
-                           
-                            <div class="card-title mt-2">
-                            <p>{{ $room->roomtype }} </p>
-                            <p>
-                                @foreach(unserialize($room->service) as $ser)
-                                    <p class="text-primary">{!! $ser !!}</p>
-                                @endforeach
-                            </p>
-                            <p>{{ $room->hotel_id}}</p>
-                            </div>
-                        
-                        
-                        </div>
-                </div>
-           
-        </div>
+    @foreach ($errors->all() as $message)
+    <div class="alert alert-danger alert-dismissible fade show">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <strong>Invalid !</strong> {{ $message }}
+    </div>
     @endforeach
 
-       
-    
+    @foreach ($rooms as $room)
         <div class="row mt-3">
-            <h5 class="text-muted">Create Room
-                <a href="#" data-toggle="modal" data-target="#create_room">  <i class="fa fa-plus-circle fa-lg" ></i></a>
-            
-            </h5>
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                        @foreach(unserialize($room->images) as $img)
+                            <div class="col-3 mt-3">
+                                <a href="{{asset('/storage/room/gallery/' . $img )}}">
+                                    <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/room/gallery/thumbnail/' . $img )}}" 
+                                    alt="Card image" width="200" height="200">
+                                </a>
+                            </div>  
+                        @endforeach
+                    </div>
+                    
+                    <div class="card-title mt-2">
+                        <p>{{ $room->roomtype }} </p>
+                        <p>
+                            @foreach(unserialize($room->service) as $ser)
+                                <p class="text-primary">{!! $ser !!}</p>
+                            @endforeach
+                        </p>
+                        <p>{{ $room->hotel_id}}</p>
+                    </div>
+                </div>
+            </div>
         </div>
+    @endforeach
 
     <div class="modal fade text-muted english" id="create_room">
         <div class="modal-dialog modal-dialog modal-lg modal-dialog-centered">
@@ -111,5 +103,4 @@
             </div>
         </div>
     </div>
-</div>  
 @endsection
