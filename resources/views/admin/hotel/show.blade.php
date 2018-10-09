@@ -48,12 +48,14 @@
                         <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" 
                         alt="Card image" width="200" height="200">
                     </a>
+                    @isset($hotel->images)
                     @foreach(unserialize($hotel->images) as $img)
                         <a href="{{asset('/storage/hotel/gallery/' . $img )}}">
 						    <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/gallery/thumbnail/' . $img )}}" 
                             alt="Card image" width="200" height="200">
                         </a>
-					@endforeach
+                    @endforeach
+                    @endisset
 				</div>
             </div>
             <p class="card-text">
@@ -102,10 +104,12 @@
                             {{ Form::label('images', 'Gallery Images') }}
                             {{ Form::file('images[]', array('multiple' =>true, 'class' =>'form-control btn btn-info')) }}
                             <br><br>
-                            @foreach(unserialize($hotel->images) as $img)
-                                <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/gallery/thumbnail/' . $img )}}" 
-                                alt="Card image" width="100" height="100">
-                            @endforeach
+                            @isset($hotel->images)
+                                @foreach(unserialize($hotel->images) as $img)
+                                    <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/gallery/thumbnail/' . $img )}}" 
+                                    alt="Card image" width="100" height="100">
+                                @endforeach
+                            @endisset
                         </div>
 
                         <div class="form-group">
