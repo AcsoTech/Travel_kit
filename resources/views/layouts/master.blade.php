@@ -27,9 +27,6 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Link</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
@@ -38,7 +35,6 @@
                 <div class="dropdown-menu">
                     <a class="dropdown-item" href="{{ route('destination.index') }}">Destination</a>
                     <a class="dropdown-item" href="{{ route('city.index') }}">City</a>
-                    <a class="dropdown-item" href="{{route('room.index')}}">Room</a>
                 </div>
                 </li>
             </ul>

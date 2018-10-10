@@ -18,13 +18,6 @@ class HotelController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function city_hotel($id)
-    {
-        $hotels = Hotel::where('city_id',$id)->get();
-        return view('admin.hotel.index', compact('hotels', 'id'));
-         
-    }
-
     public function index()
     {
         $cities =City::all();
@@ -48,7 +41,7 @@ class HotelController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-   public function store(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
             'name' =>'required',
@@ -94,10 +87,10 @@ class HotelController extends Controller
             $filenametostore_1 = 'hotel_no_media.jpg';
         }
 
-        //for all image file name to store database
-        $filename_array =array(); 
-
         if($request->hasFile('images')) {
+
+            //for all image file name to store database
+            $filename_array =array(); 
          
             foreach($request->file('images') as $file){
     
@@ -144,6 +137,7 @@ class HotelController extends Controller
         $hotel->description =$request->description;
         $hotel->star_rate = $request->star_rate;
         $hotel->credit = $request->credit;
+        $hotel->selection = $request->selection;
         $hotel->save();
         
         return redirect()->route('hotel.index')-> 
@@ -158,7 +152,7 @@ class HotelController extends Controller
      */
     public function show($id)
     {
-     $hotel =Hotel::find($id);
+        $hotel =Hotel::findOrFail($id);
         return view('admin.hotel.show', compact('hotel'));
     }
 
@@ -182,7 +176,105 @@ class HotelController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'name' =>'required',
+            'address' =>'required',
+            'star_rate' =>'required',
+            'credit' =>'required',
+            'normal_price' =>'required',
+            'our_price' =>'required',
+            'description' =>'required',
+        ]);
+        
+        $hotel = Hotel::findOrFail($id);
+        $hotel->name = $request->name;
+        $hotel->address = $request->address;
+        $hotel->star_rate = $request->star_rate;
+        $hotel->normal_price = $request->normal_price;
+        $hotel->our_price = $request->our_price;
+        $hotel->description =$request->description;
+        $hotel->selection = $request->selection;
+
+        if($request->hasFile('avatar')) {
+
+            $avatar_file = $request->avatar;
+
+            //get filename with extension
+            $filenamewithextension_1= $avatar_file->getClientOriginalName();
+
+            //get filename without extension
+            $filename_1 = pathinfo($filenamewithextension_1, PATHINFO_FILENAME);
+
+            //get file extension
+            $extension_1 = $avatar_file->getClientOriginalExtension();
+
+            //filename to store
+            $filenametostore_1 = $filename_1.'_'.uniqid().'.'.$extension_1;
+
+            Storage::put('public/hotel/cover/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+            Storage::put('public/hotel/cover/thumbnail/'. $filenametostore_1, fopen($avatar_file, 'r+'));
+
+            //Resize image here
+            $thumbnailpath_1 = public_path('storage/hotel/cover/thumbnail/'.$filenametostore_1);
+            // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+            //     $constraint->aspectRatio();
+            // });
+
+            $img_1 = Image::make($thumbnailpath_1)->resize(400, 250);
+
+            $img_1->save($thumbnailpath_1);
+
+            Storage::delete('public/hotel/cover/' . $dest->avatar );
+            Storage::delete('public/hotel/cover/thumbnail/' . $dest->avatar );
+
+            $hotel->avatar =$filenametostore_1;
+        }
+
+        if($request->hasFile('images')) {
+
+             //for all image file name to store database
+            $filename_array =array(); 
+         
+            foreach($request->file('images') as $file){
+    
+                //get filename with extension
+                $filenamewithextension = $file->getClientOriginalName();
+    
+                //get filename without extension
+                $filename = pathinfo($filenamewithextension, PATHINFO_FILENAME);
+    
+                //get file extension
+                $extension = $file->getClientOriginalExtension();
+    
+                //filename to store
+                $filenametostore = $filename.'_'.uniqid().'.'.$extension;
+
+                array_push($filename_array ,$filenametostore);
+    
+                Storage::put('public/hotel/gallery/'. $filenametostore, fopen($file, 'r+'));
+                Storage::put('public/hotel/gallery/thumbnail/'. $filenametostore, fopen($file, 'r+'));
+    
+                //Resize image here
+                $thumbnailpath = public_path('storage/hotel/gallery/thumbnail/'.$filenametostore);
+                // $img = Image::make($thumbnailpath)->resize(400, 150, function($constraint) {
+                //     $constraint->aspectRatio();
+                // });
+                $img = Image::make($thumbnailpath)->resize(400, 250);
+
+                $img->save($thumbnailpath);
+            }
+            foreach( unserialize($hotel->images) as $img){
+                Storage::delete('public/hotel/gallery/' . $img );
+                Storage::delete('public/hotel/gallery/thumbnail/' . $img );
+            }
+
+            $hotel->images = serialize($filename_array);
+
+        }
+        $hotel->save();
+
+        return redirect()->route('hotel.show' , $hotel->id)-> 
+        with('flash_message', 'Hotel update successful'); 
     }
 
     /**
@@ -193,6 +285,6 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return "delete";
     }
 }

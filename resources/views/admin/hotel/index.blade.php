@@ -7,7 +7,7 @@
         </h5>
     </div>
     <div class="row mt-3">
-        @foreach ($city->hotels as $hotel)
+        {{-- @foreach ($city->hotels as $hotel)
             <div class="card col-4  profile-img">
                 <div class="card-body">
                     <a href="{{ route('hotel.show', $hotel->id) }}">
@@ -21,7 +21,35 @@
                     
                 </div>
             </div>
-        @endforeach
+        @endforeach --}}
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Hotel name</th>
+                    <th>Hotel address</th>
+                    <th>City</th>
+                    <th>Normal Price</th>
+                    <th>Our Price</th>
+                    <th>Star Rate</th>
+                    <th>Credit</th>
+                </tr>
+            </thead>
+            @foreach($city->hotels as $hotel)
+            <tbody>
+                <tr>
+                    <td>{{ $loop->iteration }}</td>
+                    <td><a href="{{ route('hotel.show', $hotel->id ) }}">{{ $hotel->name }}</a></td>
+                    <td>{{ $hotel->address }}</td>
+                    <td>{{ $hotel->city->city }}</td>
+                    <td>{{ $hotel->normal_price }}</td>
+                    <td>{{ $hotel->our_price }}</td>
+                    <td>{{ $hotel->star_rate }}</td>
+                    <td>{{ $hotel->credit }}</td>
+                </tr>
+            </tbody>
+            @endforeach
+        </table>
     </div>
 
     <div class="modal fade text-muted english" id="create_dest">

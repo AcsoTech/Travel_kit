@@ -137,7 +137,7 @@ class DestinationController extends Controller
      */
     public function show($id)
     {
-        $dest =Destination::find($id);
+        $dest =Destination::findOrFail($id);
         return view('admin.destination.show', compact('dest'));
     }
 
@@ -166,7 +166,7 @@ class DestinationController extends Controller
             'description' =>'required',
         ]);
 
-        $dest = Destination::find($id);
+        $dest = Destination::findOrFail($id);
         $dest->title = $request->title;
         $dest->description =$request->description;
         $dest->selection = $request->check;

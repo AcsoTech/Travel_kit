@@ -91,7 +91,7 @@
 
                     <div class="form-group">
                         {{ Form::label('city', 'City Name') }}
-                        {{ Form::text('city', null, array('class' => 'form-control','placeholder' => 'Yangon' )) }}
+                        {{ Form::text('city', null, array('class' => 'form-control','placeholder' => 'Yangon','autofocus' => 'true')) }}
                     <br>   
                         {{ Form::submit('Create New', array(' class' => 'btn btn-success btn-lg btn-block')) }}
                         {{ Form::close() }}

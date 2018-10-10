@@ -52,7 +52,7 @@ class CityController extends Controller
      */
     public function show($id)
     {
-        $city = City::find($id);
+        $city = City::findOrFail($id);
         return view('admin.hotel.index', compact('city'));
     }
 
@@ -76,7 +76,7 @@ class CityController extends Controller
      */
     public function update(CityInsertFormRequest $request,$id)
     {
-        $city = City::find($id);
+        $city = City::findOrFail($id);
 
         $city->city = $request->city;
 

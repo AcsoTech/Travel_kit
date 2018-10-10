@@ -1,30 +1,3 @@
-{{-- @extends('layouts.master')
-
-@section('content')
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Hotel name</th>
-                <th>Hotel address</th>
-                <th>Normal Price</th>
-                <th>Our Price</th>
-                <th>Star Rate</th>
-                <th>Credit</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-            <td>{{ $hotel->name }}</td>
-            <td>{{ $hotel->address }}</td>
-            <td>{{ $hotel->normal_price }}</td>
-            <td>{{ $hotel->our_price }}</td>
-            <td>{{ $hotel->star_rate }}</td>
-            <td>{{ $hotel->credit }}</td>
-            </tr>
-        </tbody>
-    </table>
-@endsection
- --}}
 @extends('layouts.master')
 
 @section('content')
@@ -39,62 +12,84 @@
 
     <div class="card">
         <div class="card-header">
-            {{ $hotel->name }}
+            <div class="float-left"><p class="text-primary">Hotel Name - {{ $hotel->name }}</p></div>
+            <div class="float-right"><p class="text-warning">{{ $hotel->star_rate }}&nbsp;<i class="fa fa-star"></i></p></div>
         </div>
         <div class="card-body">
             <div class="row mb-3">
-				<div class="form-group">
-                    <a href="{{asset('/storage/hotel/cover/' . $hotel->avatar )}}">
-                        <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" 
-                        alt="Card image" width="200" height="200">
-                    </a>
-                    @isset($hotel->images)
+                <a href="{{asset('/storage/hotel/cover/' . $hotel->avatar )}}">
+                    <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" 
+                    alt="Card image" width="200" height="200">
+                </a>
+                @isset($hotel->images)
                     @foreach(unserialize($hotel->images) as $img)
                         <a href="{{asset('/storage/hotel/gallery/' . $img )}}">
-						    <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/gallery/thumbnail/' . $img )}}" 
+                            <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/hotel/gallery/thumbnail/' . $img )}}" 
                             alt="Card image" width="200" height="200">
                         </a>
                     @endforeach
-                    @endisset
-				</div>
+                @endisset
             </div>
             <div class="row mb-3">
-                <h5 class="text-muted">Create Room
+                <table class="table">
+                    <tbody>
+                        <tr>
+                            <th>Address</th>
+                            <td>{{ $hotel->address }}</td>
+                        </tr>
+                        <tr>
+                            <th>Normal Price</th>
+                            <td>{{ $hotel->normal_price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Our Price</th>
+                            <td>{{ $hotel->our_price }}</td>
+                        </tr>
+                        <tr>
+                            <th>Credit</th>
+                            <td>{{ $hotel->credit }}</td>
+                        </tr>
+                         <tr>
+                            <th>Description</th>
+                            <td>{{ $hotel->description }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <hr>
+            <div class="row ml-2 mb-3">
+                <h5 class="text-muted">Available Room
                     <a href="#" data-toggle="modal" data-target="#create_room">  
                     <i class="fa fa-plus-circle fa-lg" ></i></a>
                 </h5>
             </div>
-            <div class="row mb-3">
-                @foreach ($hotel->rooms as $room)
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row">
-                                @foreach(unserialize($room->images) as $img)
-                                    <div class="col-3 mt-3">
-                                        <a href="{{asset('/storage/room/gallery/' . $img )}}">
-                                            <img class="img-fluid img-thumbnail profile-img" src="{{asset('/storage/room/gallery/thumbnail/' . $img )}}" 
-                                            alt="Card image" width="200" height="200">
-                                        </a>
-                                    </div>  
-                                @endforeach
-                            </div>
-                            
-                            <div class="card-title mt-2">
-                                <p>{{ $room->roomtype }} </p>
-                                <p>
-                                    @foreach(unserialize($room->service) as $ser)
-                                        <p class="text-primary">{!! $ser !!}</p>
-                                    @endforeach
-                                </p>
-                                <p>{{ $room->hotel_id}}</p>
-                            </div>
-                        </div>
-                    </div>
-                @endforeach
-            </div>
-            <p class="card-text">
-                {!! $hotel->description !!}
-            </p>
+              <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Room Type</th>
+                        <th>Price</th>
+                        <th>Service</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($hotel->rooms as $room)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td><a href="{{ route('room.show' , $room->id) }}">{{ $room->room_type }}</a></td>
+                            <td>{{ $room->price }}</td>
+                            <td>@isset($room->services)
+                                    <div class="row">
+                                        @foreach(unserialize($room->services) as $ser)
+                                            <p class="text-primary mr-3">{!! $ser !!}</p>
+                                        @endforeach  
+                                    </div>
+                                @endisset
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
         </div> 
         <div class="card-footer">
             <div class="row">
@@ -127,34 +122,43 @@
                             {{ Form::file('images[]', array('multiple' =>true, 'class' =>'form-control btn btn-info')) }}
                         </div>
                 
-                        <div class="form-group">
-                            {{ Form::label('roomtype', 'Room Type') }}
-                            {{ Form::text('roomtype',null, array('class' => 'form-control', 'autofocus' => 'true')) }}
+                        <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('room_type', 'Room Type') }}
+                                {{ Form::text('room_type',null, array('class' => 'form-control', 'autofocus' => 'true')) }}
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('price', 'Price') }}
+                                {{ Form::number('price',null, array('class' => 'form-control')) }}
+                            </div>
                         </div>
 
-                        <div class="form-group">
-                            {{ Form::label('service', 'Wifi') }}
-                            {!! Form::checkbox('service[]','<i class="fa fa-wifi"></i>&nbsp; Wifi') !!}
-                            
-                        </div>
+                        <div class="row ml-1 mt-3">
+                            <div class="form-group mr-3">
+                                {{ Form::label('service', 'Wifi') }}
+                                {!! Form::checkbox('services[]','<i class="fa fa-wifi"></i>&nbsp; Wifi') !!}                               
+                            </div>
 
-                        <div class="form-group">
-                            {{ Form::label('service', 'Bath') }}
-                            {!! Form::checkbox('service[]','<i class="fa fa-bath"></i>&nbsp; Bath') !!}
-                            
-                        </div>
+                            <div class="form-group mr-3">
+                                {{ Form::label('service', 'Bath') }}
+                                {!! Form::checkbox('services[]','<i class="fa fa-bath"></i>&nbsp; Bath') !!}
+                            </div>
 
-                        <div class="form-group">
-                            {{ Form::label('service', 'BreakFast') }}
-                            {!! Form::checkbox('service[]','<i class="fa fa-birthday-cake"></i>&nbsp; Breakfast') !!}
-                            
-                        </div>
+                            <div class="form-group mr-3">
+                                {{ Form::label('service', 'BreakFast') }}
+                                {!! Form::checkbox('services[]','<i class="fa fa-birthday-cake"></i>&nbsp; Breakfast') !!}      
+                            </div>
 
-                        <div class="form-group">
-                            {{ Form::label('service', 'Dinner') }}
-                            {!! Form::checkbox('service[]','<i class="fa fa-birthday-cake"></i>&nbsp; Dinner') !!}
+                            <div class="form-group mr-3">
+                                {{ Form::label('service', 'Dinner') }}
+                                {!! Form::checkbox('services[]','<i class="fa fa-birthday-cake"></i>&nbsp; Dinner') !!}
+                            </div>
                         </div>
-                        {{ Form::submit('Create New', array(' class' => 'btn btn-success btn-lg btn-block mt-5')) }}
+                        <div class="form-group">
+                            {{ Form::label('description', 'Description') }}
+                            {{ Form::textarea('description',null, array('class' => 'form-control')) }}
+                        </div>
+                        {{ Form::submit('Create New', array(' class' => 'btn btn-success btn-lg btn-block mt-1')) }}
                     {{ Form::close() }}
                 </div>
                     <!-- Modal footer -->
@@ -164,7 +168,6 @@
             </div>
         </div>
     </div>
-
     
     <div class="modal fade text-muted english" id="edit_hotel">
         <div class="modal-dialog modal-dialog modal-lg modal-dialog-centered">
@@ -181,39 +184,66 @@
                     {{-- Using the Laravel HTML Form Collective to create our form --}}
                     {{ Form::model($hotel, array('route' => array('hotel.update', $hotel->id), 'files'=> true , 'method' => 'PUT')) }}
         
-                        <div class="form-group">
-                            {{ Form::label('title', 'Location') }}
-                            {{ Form::text('title',null, array('class' => 'form-control', 'autofocus' => 'true')) }}
+                        <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('name', 'Hotel Name') }}
+                                {{ Form::text('name',null, array('class' => 'form-control', 'autofocus' => 'true')) }}
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('address', 'Address') }}
+                                {{ Form::text('address',null, array('class' => 'form-control')) }}
+                            </div>
                         </div>
-                        
-                        <div class="form-group">
-                            {{ Form::label('avatar', 'Profile Image') }}
-                            {{ Form::file('avatar', array('class' =>'form-control btn btn-info')) }}
-                            <br><br>
-                            <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" 
-                             alt="Card image" width="100" heigth="100">
-                        </div>
-
-                        <div class="form-group">
-                            {{ Form::label('images', 'Gallery Images') }}
-                            {{ Form::file('images[]', array('multiple' =>true, 'class' =>'form-control btn btn-info')) }}
-                            <br><br>
-                            @isset($hotel->images)
-                                @foreach(unserialize($hotel->images) as $img)
-                                    <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/gallery/thumbnail/' . $img )}}" 
-                                    alt="Card image" width="100" height="100">
-                                @endforeach
-                            @endisset
+                        <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('normal_price', 'Normal Price') }}
+                                {{ Form::number('normal_price',null, array('class' => 'form-control')) }}
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('our_price', 'Our Price') }}
+                                {{ Form::number('our_price',null, array('class' => 'form-control')) }}
+                            </div>
                         </div>
 
+                            <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('star_rate', 'Star Rate') }}
+                                {{ Form::number('star_rate',null, array('class' => 'form-control')) }}
+                            </div>
+                            <div class="form-group col-6">
+                                {{ Form::label('credit', 'Credit') }}
+                                {{ Form::text('credit',null, array('class' => 'form-control')) }}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-6">
+                                {{ Form::label('avatar', 'Profile Image') }}
+                                {{ Form::file('avatar', array('class' =>'form-control btn btn-info')) }}
+                                <br><br>
+                                <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" 
+                                alt="Card image" width="100" heigth="100">
+                            </div>
+
+                            <div class="form-group col-6">
+                                {{ Form::label('images', 'Gallery Images') }}
+                                {{ Form::file('images[]', array('multiple' =>true, 'class' =>'form-control btn btn-info')) }}
+                                <br><br>
+                                @isset($hotel->images)
+                                    @foreach(unserialize($hotel->images) as $img)
+                                        <img class="img-fluid img-thumbnail profile-img" src="{{asset('storage/hotel/gallery/thumbnail/' . $img )}}" 
+                                        alt="Card image" width="100" height="100">
+                                    @endforeach
+                                @endisset
+                            </div>
+                        </div>
                         <div class="form-group">
                             {{ Form::label('description', 'Description') }}
                             {{ Form::textarea('description',null, array('class' => 'form-control')) }}
                         </div>
 
                         <div class="form-group">
-                            {{ Form::label('check', 'Selection') }}
-                            {{ Form::checkbox('check', 1, false) }}
+                            {{ Form::label('selection', 'Selection') }}
+                            {{ Form::checkbox('selection', 1, false) }}
                         </div>
                         
                         

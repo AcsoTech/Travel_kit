@@ -16,9 +16,11 @@ class CreateRoomsTable extends Migration
         Schema::create('rooms', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('hotel_id');
-            $table->text('roomtype');
-            $table->text('service');
+            $table->string('room_type');
+            $table->decimal('price',8,2);
+            $table->text('services');
             $table->text('images')->nullable();
+            $table->text('description')->nullable();
             $table->timestamps();
 
         }); 
