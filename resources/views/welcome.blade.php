@@ -11,7 +11,7 @@
 @section('slide')
     <div class="li-title ml-3">Product</div>
     <li>
-        <a href="{{ asset('/hotel/home') }}">Hotel</a>
+        <a href="{{ route('user.hotel') }}">Hotel</a>
     </li>
     <li>
         <a href="">Flight</a>

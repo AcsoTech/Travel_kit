@@ -19,17 +19,12 @@ Route::get('/dest', 'User\WelcomeController@dest')->name('dest.index');
 //destination detail show 
 Route::get('/dest/{id}','User\WelcomeController@dest_show')->name('dest.show');
 
+//For user.hotel
+Route::get('/hotel','User\HotelController@index')->name('user.hotel');
+Route::get('/hotel/city/{id}','User\HotelController@hotel_city')->name('user.hotel.city');
+Route::get('/hotel/star/{id}','User\HotelController@hotel_star')->name('user.hotel.star');
 
-
-
-Route::get('/hotel/home', function () {
-    return view('hotel.home');
-});
-
-Route::get('/room',function(){
-    return view('hotel.room');
-
-});
+Route::get('/hotel/{id}','User\HotelController@hotel_room')->name('user.hotel.room');
 
 Route::get('/review',function(){
     return view('hotel.review');

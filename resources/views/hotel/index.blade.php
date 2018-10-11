@@ -19,40 +19,33 @@
         <a href="#">3</a>
     </li>
     <hr>
-    <div class="li-title ml-3">Service</div>
-    <li>
-        <a href="#">A</a>
-    </li>
-    <li>
-        <a href="#">B</a>
-    </li>
-    <li>
-        <a href="#">Address</a>
-    </li>
-    <li>
-        <a href="#">C</a>
-    </li>
+    <div class="li-title ml-3">Available City</div>
+    @foreach($cities as $city)
+        <li>
+        <a href="{{ route('user.hotel.city', $city->id)}}">{{ $city->city }}</a>
+        </li>
+    @endforeach
+    
 @endsection
 
 @section('content')
+@foreach($hotels as $hotel)
     <div class="row mt-3">
         <div class="card col" style="width: 28rem;">
-            <a href="{{ url('/room') }}" class="card-link">
+            <a href="{{ route('user.hotel.room',$hotel->id) }}" class="card-link">
                 <div class="row mb-1">
-                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
+                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" alt="Avatar">
                     <div class="card-body col-6 p-1">
-                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                            3 <i class="fa fa-star text-warning"></i>
+                        <p class="text-primary card-title">{{ $hotel->name }} &nbsp;
+                            {{ $hotel->star_rate }} <i class="fa fa-star text-warning"></i>
                         </p>
                         <p class="location-link text-primary">
                             <i class="fa fa-location-arrow"></i>
-                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
+                            {{ $hotel->address }}
                         </p>
-                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
+                        <p class="text-warning mt-2"><i class="fa fa-flag"></i>&nbsp; {{ $hotel->credit }}</p>
+                        <p class="text-primary"> Hotel Price&nbsp;{{ $hotel->normal_price }} <i class="fa fa-money"></i></p>
+                        <p class="text-success"> Our Price&nbsp;{{ $hotel->our_price }} <i class="fa fa-money"></i></p>
                     </div>
                 </div>
             </a>
@@ -67,68 +60,7 @@
             </div>
         </div>
     </div>
-     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
-            <a href="{{ url('/room') }}" class="card-link">
-                <div class="row mb-1">
-                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                    <div class="card-body col-6 p-1">
-                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                            3 <i class="fa fa-star text-warning"></i>
-                        </p>
-                        <p class="location-link text-primary">
-                            <i class="fa fa-location-arrow"></i>
-                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                        </p>
-                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    </div>
-                </div>
-            </a>
-            <div class="card-footer bg-white">
-                 <a href="{{ url('/review') }}" class="float-left card-link">
-                    4 Like &nbsp;<i class="fa fa-heart-o"></i>
-                </a>
-                <a href="#" class="float-right card-link" data-toggle="modal" data-target="#review">
-                    6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
-                </a>
-            </div>
-        </div>
-    </div>
-     <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
-            <a href="{{ url('/room') }}" class="card-link">
-                <div class="row mb-1">
-                    <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                    <div class="card-body col-6 p-1">
-                        <p class="text-primary card-title">Bangan King Hotel &nbsp;
-                            3 <i class="fa fa-star text-warning"></i>
-                        </p>
-                        <p class="location-link text-primary">
-                            <i class="fa fa-location-arrow"></i>
-                            No (15/B), 26 Street, Between 76 Street and 75 Street, Chan Aye 
-                            Tharsan Township, Central Mandalay, Mandalay, Myanmar - View on map agoda
-                        </p>
-                        <p class="text-dark mt-2"><i class="fa fa-flag-o"></i>&nbsp; Excellent 8.8</p>
-                        <p class="text-success"><i class="fa fa-wifi"></i>&nbsp; Free Wi-fi</p>
-                        <p class="text-success"><i class="fa fa-cutlery"></i>&nbsp; Free Breafast</p>
-                        <p class="text-success"><i class="fa fa-check"></i>&nbsp; Pay at the hotel</p>
-                    </div>
-                </div>
-            </a>
-            <div class="card-footer bg-white">
-                <a href="{{ url('/review') }}" class="float-left card-link">
-                    4 Like &nbsp;<i class="fa fa-heart-o"></i>
-                </a>
-                <a href="#" class="float-right card-link" data-toggle="modal" data-target="#review">
-                    6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
-                </a>
-            </div>
-        </div>
-    </div>
+@endforeach
 
     <div class="fixed_button mb-1">
         <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#filter">

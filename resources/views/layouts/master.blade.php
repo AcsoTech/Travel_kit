@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Travel's Kit</title>
     <link rel="stylesheet" href="{{ asset('css/bootstrap_4.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin_style.css') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     @yield('style')
 </head>
 <body>
-    <nav class="navbar navbar-expand-md bg-info navbar-light fixed-top">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-md bg-primary navbar-dark fixed-top">
+        <a class="navbar-brand" href="#">Travel's Kit</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -23,9 +23,6 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('hotel.index') }}">Hotel</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
                 </li>
                 <!-- Dropdown -->
                 <li class="nav-item dropdown">

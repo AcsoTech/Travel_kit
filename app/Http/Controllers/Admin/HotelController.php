@@ -224,8 +224,8 @@ class HotelController extends Controller
 
             $img_1->save($thumbnailpath_1);
 
-            Storage::delete('public/hotel/cover/' . $dest->avatar );
-            Storage::delete('public/hotel/cover/thumbnail/' . $dest->avatar );
+            Storage::delete('public/hotel/cover/' . $hotel->avatar );
+            Storage::delete('public/hotel/cover/thumbnail/' . $hotel->avatar );
 
             $hotel->avatar =$filenametostore_1;
         }
@@ -287,4 +287,5 @@ class HotelController extends Controller
     {
         return "delete";
     }
+    
 }

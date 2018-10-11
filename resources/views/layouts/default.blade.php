@@ -37,7 +37,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item">
                         <a class="nav-link" href="#menu-toggle" id="menu-toggle"> 
-                            <i class="fa fa-bars text-white"></i>
+                            <i class="fa fa-bars text-white"></i>Menu
                         </a>
                     <li>
                 </ul>
