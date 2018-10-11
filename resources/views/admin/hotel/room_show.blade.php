@@ -11,7 +11,7 @@
 </div>
 
 <div class="row mb-3">
-    <div class="card">
+    <div class="card" style="width:100%">
         <div class="card-header">Room Type - {{ $room->room_type }}</div>
         <div class="card-body">
             <div class="row ml-2">
@@ -52,9 +52,14 @@
                 </table>
             </div>
         </div> 
-        <div class="card-footer">
-            <a href="#" class="btn btn-warning" data-toggle="modal" data-target="#edit_room">Edit</a>
-            <a href="{{ route('hotel.show', $room->hotel_id) }}" class="btn btn-primary">Back Hotel</a>
+        <div class="card-footer">   
+        <div class="row">
+             <a href="#" class="btn btn-warning btn-sm mr-3" data-toggle="modal" data-target="#edit_room">Edit</a>
+            {!! Form::open(['method' => 'DELETE', 'route' => ['room.destroy', $room->id] ]) !!}
+            {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm mr-3']) !!}
+            {!! Form::close() !!} 
+            <a href="{{ route('hotel.show', $room->hotel_id) }}" class="btn btn-primary btn-sm">Back Hotel</a>
+        </div>
         </div>
     </div>
 </div>
@@ -120,7 +125,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        {{ Form::label('description', 'Descrip\tion') }}
+                        {{ Form::label('description', 'Description') }}
                         {{ Form::textarea('description',null, array('class' => 'form-control')) }}
                     </div>
                     {{ Form::submit('Update Room', array(' class' => 'btn btn-success btn-lg btn-block mt-1')) }}

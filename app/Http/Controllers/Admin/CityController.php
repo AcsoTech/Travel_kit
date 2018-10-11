@@ -28,7 +28,7 @@ class CityController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -94,7 +94,12 @@ class CityController extends Controller
      */
     public function destroy($id)
     {
-        $city = City::find($id);
+        $city = City::findOrFail($id);
+         if( count($city->hotels) > 0){
+             
+            return redirect()->route('city.index')-> 
+            with('error_message', 'Before delete, Please check and delete hotel in this city.'); 
+        }
         $city->delete();
         return redirect()->route('city.index')
         ->with('flash_message','City Delete successful.');

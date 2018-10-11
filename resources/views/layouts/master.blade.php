@@ -47,7 +47,14 @@
     @if(session('flash_message'))
         <div class="alert alert-success alert-dismissible fade show">
             <button type="button" class="close" data-dismiss="alert">&times;</button>
-            <strong>Notification</strong> {{ session('flash_message') }}
+            <strong>Notification :</strong> {{ session('flash_message') }}
+        </div>
+    @endif
+
+    @if(session('error_message'))
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Notic !</strong> {{ session('error_message') }}
         </div>
     @endif
 

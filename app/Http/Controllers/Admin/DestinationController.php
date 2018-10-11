@@ -29,7 +29,7 @@ class DestinationController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -149,7 +149,7 @@ class DestinationController extends Controller
      */
     public function edit($id)
     {
-        
+        abort(404);
     }
 
     /**
@@ -261,7 +261,7 @@ class DestinationController extends Controller
      */
     public function destroy($id)
     {
-        $dest = Destination::find($id);
+        $dest = Destination::findOrFail($id);
 
         Storage::delete('public/destination/cover/' . $dest->avatar );
         Storage::delete('public/destination/cover/thumbnail/' . $dest->avatar );

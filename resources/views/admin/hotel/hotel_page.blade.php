@@ -23,12 +23,12 @@
                 <tr>
                     <th>#</th>
                     <th>Hotel name</th>
-                    <th>Hotel address</th>
                     <th>City</th>
                     <th>Normal Price</th>
                     <th>Our Price</th>
                     <th>Star Rate</th>
                     <th>Credit</th>
+                    <th>Hotel address</th>
                 </tr>
             </thead>
             @foreach ($hotels as $hotel)
@@ -36,12 +36,12 @@
                 <tr>
                 <td>{{ $loop->iteration }}</td>
                 <td><a href="{{ route('hotel.show', $hotel->id ) }}">{{ $hotel->name }}</a></td>
-                <td>{{ $hotel->address }}</td>
                 <td>{{ $hotel->city->city }}</td>
                 <td>{{ $hotel->normal_price }}</td>
                 <td>{{ $hotel->our_price }}</td>
                 <td>{{ $hotel->star_rate }}</td>
                 <td>{{ $hotel->credit }}</td>
+                <td>{{ $hotel->address }}</td>
                 </tr>
             </tbody>
             @endforeach

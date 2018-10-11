@@ -32,7 +32,7 @@ class HotelController extends Controller
      */
     public function create()
     {
-        //
+        abort(404);
     }
 
     /**
@@ -164,7 +164,7 @@ class HotelController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -285,6 +285,25 @@ class HotelController extends Controller
      */
     public function destroy($id)
     {
-        return "delete";
+        $hotel = Hotel::findOrFail($id);
+        if( count($hotel->rooms) > 0){
+
+            return redirect()->route('hotel.show', $hotel->id)-> 
+            with('error_message', 'Before delete, Please check and delete room in this hotel.'); 
+        
+        }
+        Storage::delete('public/hotel/cover/' . $hotel->avatar );
+        Storage::delete('public/hotel/cover/thumbnail/' . $hotel->avatar );
+
+        foreach( unserialize($hotel->images) as $img){
+            Storage::delete('public/hotel/gallery/' . $img );
+            Storage::delete('public/hotel/gallery/thumbnail/' . $img );
+        }
+        
+        $hotel->delete();
+
+        return redirect()->route('city.show', $hotel->city_id)-> 
+        with('flash_message', 'Old Hotel  delete successful');
+
     }
 }
