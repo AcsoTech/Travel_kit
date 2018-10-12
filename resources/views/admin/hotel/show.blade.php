@@ -10,7 +10,7 @@
         @endforeach
     </div>
 
-    <div class="card">
+    <div class="card" style="width:100%">
         <div class="card-header">
             <div class="float-left"><p class="text-primary">Hotel Name - {{ $hotel->name }}</p></div>
             <div class="float-right"><p class="text-warning">{{ $hotel->star_rate }}&nbsp;<i class="fa fa-star"></i></p></div>
@@ -95,8 +95,9 @@
             <div class="row">
                 <a href="#"  class="btn btn-warning btn-sm mr-2"  data-toggle="modal" data-target="#edit_hotel">Edit</a>
                 {!! Form::open(['method' => 'DELETE', 'route' => ['hotel.destroy', $hotel->id] ]) !!}
-                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm mr-2']) !!}
                 {!! Form::close() !!} 
+                <a href="{{ route('city.show', $hotel->city_id) }}" class="btn btn-primary btn-sm">Back Hotel</a>
             </div>
         </div>
     </div>
@@ -246,8 +247,6 @@
                             {{ Form::checkbox('selection', 1, false) }}
                         </div>
                         
-                        
-                    
                         {{ Form::submit('Update', array(' class' => 'btn btn-success btn-lg btn-block mt-5')) }}
                     {{ Form::close() }}
                 </div>

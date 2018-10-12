@@ -18,7 +18,7 @@ class RoomController extends Controller
      */
     public function index()
     {
-        
+        abort(404);
     }
 
     /**
@@ -28,7 +28,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-    
+        abort(404);
     }
 
     /**
@@ -116,7 +116,7 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        //
+        abort(404);
     }
 
     /**
@@ -191,6 +191,14 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $room = Room::findOrFail($id);
+        foreach( unserialize($room->images) as $img){
+            Storage::delete('public/room/gallery/' . $img );
+            Storage::delete('public/room/gallery/thumbnail/' . $img );
+        }
+        $room->delete();
+
+        return redirect()->route('hotel.show', $room->hotel_id)-> 
+        with('flash_message', 'Old Room delete successful');
     }
 }
