@@ -78,27 +78,27 @@
             <div class="card col" style="width:100%">
                 <div class="row mt-3">
                     <div class="col-lg-4 offset-lg-4">
-                        <div id="room_image" class="carousel slide" data-ride="carousel">
+                        <div id="room_image{{ $room->id }}" class="carousel slide" data-ride="carousel">
                             <!-- Indicators -->
                             <ul class="carousel-indicators">
                                 @foreach(unserialize($room->images) as $img )
-                                <li data-target="#room_image" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
+                                    <li data-target="#room_image{{ $room->id }}" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
                                 @endforeach
                             </ul>
 
                             <!-- The slideshow -->
                             <div class="carousel-inner">
                                 @foreach(unserialize($room->images) as $img )
-                                <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
-                                    <img src="{{asset('/storage/room/gallery/thumbnail/' . $img )}}"" alt="{{ $loop->index }}">
-                                </div>
+                                    <div class="carousel-item {{ $loop->first ? 'active' : '' }}">
+                                        <img src="{{asset('/storage/room/gallery/thumbnail/' . $img )}}"" alt="{{ $loop->index }}">
+                                    </div>
                                 @endforeach
                             </div>
                             <!-- Left and right controls -->
-                            <a class="carousel-control-prev" href="#room_image" data-slide="prev">
+                            <a class="carousel-control-prev" href="#room_image{{ $room->id }}" data-slide="prev">
                                 <span class="carousel-control-prev-icon"></span>
                             </a>
-                            <a class="carousel-control-next" href="#room_image" data-slide="next">
+                            <a class="carousel-control-next" href="#room_image{{ $room->id }}" data-slide="next">
                                 <span class="carousel-control-next-icon"></span>
                             </a>
                         </div>

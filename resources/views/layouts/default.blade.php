@@ -43,7 +43,7 @@
                 </ul>
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
-                        <a class="logo-text text-dark" href="/">Taveller's Kit</a><br>
+                        <a class="logo-text" href="/">Taveller's Kit</a><br>
                     </li>
                 </ul>
             </nav>
