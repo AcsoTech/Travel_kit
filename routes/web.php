@@ -25,6 +25,7 @@ Route::get('/hotel/city/{id}','User\HotelController@hotel_city')->name('user.hot
 Route::get('/hotel/star/{id}','User\HotelController@hotel_star')->name('user.hotel.star');
 
 Route::get('/hotel/{id}','User\HotelController@hotel_room')->name('user.hotel.room');
+Route::post('/hotel/filter','User\HotelController@filter')->name('user.hotel.filter');
 
 Route::get('/review',function(){
     return view('hotel.review');

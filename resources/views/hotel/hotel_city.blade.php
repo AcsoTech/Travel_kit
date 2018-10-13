@@ -8,30 +8,27 @@
 @endsection 
 
 @section('slide')
-    <div class="li-title ml-3">Hotel</div>
-    <li>
-        <a href="">1</a>
-    </li>
-    <li>
-        <a href="">2</a>
-    </li>
-    <li>
-        <a href="#">3</a>
-    </li>
-    <hr>
-    <div class="li-title ml-3">Star Rate</div>
+
+<ul class="list-unstyled components">
+    <p>Star Rate</p>
     @for($i =1; $i<6; $i++)
-     <li>
-     <a href="{{ route('user.hotel.star', $i) }}">{{ $i }}<i class="fa fa-star text-warning"></i></a>
-    </li>
+        <li>
+            <a href="{{ route('user.hotel.star', $i) }}">{{ $i }} &nbsp;<i class="fa fa-star text-warning"></i></a>
+        </li>
     @endfor
+</ul>
+    
+@endsection
+
+@section('mess')
+<button type="button" class="btn btn-default">{{ $city->city }}</button>
 @endsection
 
 @section('content')
-@foreach($hotels as $hotel)
-    <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
-            <a href="{{ url('/room') }}" class="card-link">
+@foreach($city->hotels as $hotel)
+    <div class="row mt-1">
+        <div class="card col" style="width:100%">
+            <a href="{{ route('user.hotel.room',$hotel->id) }}" class="card-link">
                 <div class="row mb-1">
                     <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" alt="Avatar">
                     <div class="card-body col-6 p-1">
@@ -210,73 +207,66 @@
                 <p class="modal-title card-title">Sort and Filter</p>
                 <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
-                
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="model-scroll" id="style-1">
-                        <p class="text-light bg-info">Sort by: <i class="fa fa-sort"></i></p>
-                        <div class="form-group">
-                            <select class="form-control" id="sel1" name="sellist1">
-                                <option>Price (Low to Hight)</option>
-                                <option>Price (Height to Low)</option>
-                                <option>Star (0 to 5)</option>
-                                <option>Star (5 to 0)</option>
-                            </select>
-                        </div>
-                        <br>
-                        <p class="text-light bg-info">Filter by: <i class="fa fa-balance-scale"></i></p>
-                        <h6>Star Rating</h6>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">1
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">2 
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>3
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>4
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>5
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <br><br>
-                        <h6>Price</h6>
-                        <div class="form-group">
-                            <input type="text" name="" id="" class="form-control" placeholder="Almost Price">
-                        </div>
+                <form action="{{ route('user.hotel.filter') }}" method="post">
+                    {{ csrf_field() }}
+                <input type="hidden" name="city_id" value="{{ $city->id }}">
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <div class="model-scroll" id="style-1">
+                            <p class="text-light bg-info">Sort by: <i class="fa fa-sort"></i></p>
+                            <div class="form-group">
+                                <select class="form-control" name="sort">
+                                    <option value="1">Price (Height to Low)</option>
+                                    <option value="2">Price (Low to Hight)</option>
+                                    <option value="3">Star (0 to 5)</option>
+                                    <option value="4">Star (5 to 0)</option>
+                                </select>
+                            </div>
+                            <br>
+                            <p class="text-light bg-info">Filter by: <i class="fa fa-balance-scale"></i></p>
+                            <h6>Star Rating</h6>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="star_rate" value="1">1
+                                    <i class="fa fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="star_rate" value="2">2 
+                                    <i class="fa fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="star_rate" value="3" checked>3
+                                    <i class="fa fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="star_rate" value="4">4
+                                    <i class="fa fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="star_rate" value="5">5
+                                    <i class="fa fa-star text-warning"></i>
+                                </label>
+                            </div>
+                            <br><br>
+                            <h6>Price</h6>
+                            <div class="form-group">
+                                <input type="number" name="price" min="1000" class="form-control" placeholder="Almost Price">
+                            </div>
 
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                </div>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer">
+                        <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

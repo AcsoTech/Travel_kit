@@ -10,7 +10,7 @@
 
     <div class="row mt-3">
         <h5 class="text-muted">Available City 
-            <a href="#" data-toggle="modal" data-target="#create_dest"> <i class="fa fa-plus-circle fa-lg" ></i></a>
+            <a href="#" data-toggle="modal" data-target="#create_city"> <i class="fa fa-plus-circle fa-lg" ></i></a>
         </h5>
     </div>
     <table class="table mt-3">
@@ -74,7 +74,7 @@
             @endforeach
         </tbody>
     </table>
-    <div class="modal fade text-muted english" id="create_dest">
+    <div class="modal fade text-muted english" id="create_city">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
             
@@ -92,7 +92,7 @@
                     <div class="form-group">
                         {{ Form::label('city', 'City Name') }}
                         {{ Form::text('city', null, array('class' => 'form-control','placeholder' => 'Yangon','autofocus' => 'true')) }}
-                    <br>   
+                        <br>   
                         {{ Form::submit('Create New', array(' class' => 'btn btn-success btn-lg btn-block')) }}
                         {{ Form::close() }}
                     </div>

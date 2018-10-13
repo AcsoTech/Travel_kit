@@ -9,33 +9,6 @@
    </style>
 @endsection
 @section('slide')
-    <div class="li-title ml-3">Product</div>
-    <li>
-        <a href="{{ route('user.hotel') }}">Hotel</a>
-    </li>
-    <li>
-        <a href="">Flight</a>
-    </li>
-    <li>
-        <a href="#">Bus</a>
-    </li>
-    <li>
-        <a href="#">Restructure</a>
-    </li>
-    <hr>
-    <div class="li-title ml-3">My Setting</div>
-    <li>
-        <a href="#">Events</a>
-    </li>
-    <li>
-        <a href="#">About</a>
-    </li>
-    <li>
-        <a href="#">Address</a>
-    </li>
-    <li>
-        <a href="#">Contact</a>
-    </li>
 @endsection
 
 @section('content')

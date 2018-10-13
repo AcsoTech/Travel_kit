@@ -67,15 +67,6 @@
        margin-top:50px;
       
     }
-    /* .btn-rev{
-        padding: 10px 20px;
-        font-size: 20px;
-        border-radius: 10px;
-        width:20%;
-        font-weight: 400;
-        color: #007bff;
-        background-color: transparent;
-    } */
 }
 
 @media (max-width: 480px) {
@@ -166,12 +157,13 @@
     font-weight: bold;
 }
 
-.slide-scroll{
-    display:block;
-    max-height: 600px;
+.slide-scroll {
+    display: block;
+    /* max-height: 600px; */
+    overflow-x: auto;
     overflow-y: auto;
     -ms-overflow-style: -ms-autohiding-scrollbar;
-  
+
 }
 .container-scroll {
     display: block;
@@ -212,7 +204,7 @@
     background-color:white;
 }
 
- .noradius{
+ /* .noradius{
     border-radius:1px;
  }   
  .showmore{
@@ -223,4 +215,4 @@
  }
  .showmore:hover {
     text-decoration: none; 
-}
+} */

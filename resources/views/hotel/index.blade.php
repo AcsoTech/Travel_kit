@@ -8,30 +8,21 @@
 @endsection 
 
 @section('slide')
-    <div class="li-title ml-3">Hotel</div>
-    <li>
-        <a href="">1</a>
-    </li>
-    <li>
-        <a href="">2</a>
-    </li>
-    <li>
-        <a href="#">3</a>
-    </li>
-    <hr>
-    <div class="li-title ml-3">Available City</div>
-    @foreach($cities as $city)
-        <li>
-        <a href="{{ route('user.hotel.city', $city->id)}}">{{ $city->city }}</a>
-        </li>
-    @endforeach
-    
+    <ul class="list-unstyled components">
+        <p>Available City</p>
+        @foreach($cities as $city)
+            <li>
+                <a href="{{ route('user.hotel.city', $city->id)}}">{{ $city->city }}</a>
+            </li>
+        @endforeach
+    </ul>
 @endsection
 
 @section('content')
+
 @foreach($hotels as $hotel)
-    <div class="row mt-3">
-        <div class="card col" style="width: 28rem;">
+    <div class="row mt-1">
+        <div class="card col" style="width:100%">
             <a href="{{ route('user.hotel.room',$hotel->id) }}" class="card-link">
                 <div class="row mb-1">
                     <img class="card-img-top card-hotel-image col-6 pt-1" src="{{asset('/storage/hotel/cover/thumbnail/' . $hotel->avatar )}}" alt="Avatar">
@@ -61,13 +52,6 @@
         </div>
     </div>
 @endforeach
-
-    <div class="fixed_button mb-1">
-        <a href="#" class="btn btn-info btn-sm" data-toggle="modal" data-target="#filter">
-            <i class="fa fa-balance-scale"></i> Filter
-        </a>
-    </div>
-
     <div class="modal fade" id="review">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
@@ -199,85 +183,6 @@
                     <button type="button" type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
                 </div>
         
-            </div>
-        </div>
-    </div>
-
-    <div class="modal fade" id="filter">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-                <!-- Modal Header -->
-                <div class="modal-header">
-                <p class="modal-title card-title">Sort and Filter</p>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                
-                <!-- Modal body -->
-                <div class="modal-body">
-                    <div class="model-scroll" id="style-1">
-                        <p class="text-light bg-info">Sort by: <i class="fa fa-sort"></i></p>
-                        <div class="form-group">
-                            <select class="form-control" id="sel1" name="sellist1">
-                                <option>Price (Low to Hight)</option>
-                                <option>Price (Height to Low)</option>
-                                <option>Star (0 to 5)</option>
-                                <option>Star (5 to 0)</option>
-                            </select>
-                        </div>
-                        <br>
-                        <p class="text-light bg-info">Filter by: <i class="fa fa-balance-scale"></i></p>
-                        <h6>Star Rating</h6>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">1
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio">2 
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>3
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>4
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <div class="form-check-inline">
-                            <label class="form-check-label">
-                                <input type="radio" class="form-check-input" name="optradio" disabled>5
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                                <i class="fa fa-star text-warning"></i>
-                            </label>
-                        </div>
-                        <br><br>
-                        <h6>Price</h6>
-                        <div class="form-group">
-                            <input type="text" name="" id="" class="form-control" placeholder="Almost Price">
-                        </div>
-
-                </div>
-                <!-- Modal footer -->
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Search</button>
-                </div>
             </div>
         </div>
     </div>
