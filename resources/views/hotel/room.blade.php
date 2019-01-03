@@ -17,6 +17,14 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="jumbotron">
+                    <div class="row mb-2 ml-1">
+                        <a href="{{ url('/review') }}" class="float-left card-link">
+                            4 Like &nbsp;<i class="fa fa-heart-o"></i>
+                        </a>
+                        <a href="#" class="float-right card-link" data-toggle="modal" data-target="#review">
+                            6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
+                        </a>
+                    </div>
                         {!!  $hotel->description !!}
                     </div>
                 </div>
@@ -95,55 +103,138 @@
         </div>
         @endforeach
     </div>
-   
-
-@endsection
-
-     {{-- <div class="row mt-3">
-        <div class="card col" style="width:28rem;">
-            <a href="{{ url('/room') }}" class="logo-text">
-                <div class="row mb-1">
-                    <div class="col-md-4">
-                        <div class="row">
-                            <img class="card-img-top room-image-lg col-12 mt-1" src="{{asset('img/hotel/hotel1.jpg')}}" alt="Card image cap">
-                            <img class="card-img-top  room-image-sm col-6 mt-1" src="{{asset('img/hotel/hotel2.jpg')}}" alt="Card image cap">
-                            <img class="card-img-top room-image-sm col-6 mt-1" src="{{asset('img/hotel/hotel3.jpg')}}" alt="Card image cap">
-                        </div>
-                    </div>
-                    <div class="col-md-8 text-center mt-3">
-                        <p class="text-dark card-title">hello</p>
-                        <div class="row">
-                            <div class="col-md-6 col-6">
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-wifi"> </i>  Free Wi-fi</p>
-                                <p class="text-success"><i class="fa fa-check"> Pay at the hotel</i>
-                                <p class="text-primary"><i class="fa fa-dollar"></i> 51/night</p>
+    <div class="modal fade" id="review">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <p class="modal-title card-title">Hotel Reviews</p>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <div class="model-scroll" id="style-1">
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.kyawsonaung 
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (4 day ago)</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
                             </div>
-                            <div class="col-md-6 col-6">
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-star text-warning"></i> Room</p>
-                                <p class="text-success"><i class="fa fa-wifi"> </i>  Free Wi-fi</p>
-                                <p class="text-success"><i class="fa fa-check"> Pay at the hotel</i>
-                                <p class="text-primary"><i class="fa fa-dollar"></i> 51/night</p>
+                        </div>
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.Aung Nyi Thit
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon  (1 day ago)</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.Sai Yan Naing 
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (2 day ago)</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.Htet Htet Kyaw 
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon (3 m ago)</p>
+                                <p>
+                                    Badges are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
+                            </div>
+                        </div>
+                        <div class="card bg-light col">  
+                            <div class="card-body">
+                                <p class="text-dark text-uppercase card-title font-weight-bold">
+                                Mr.Nay Chi Thit
+                                </p>
+                                <p class="text-primary"><i class="fa fa-location-arrow"></i> Yangon  (5 hr ago)</p>
+                                <p>
+                                    Badgessss are used to add additional information to 
+                                    any content. Use the .badge class together
+                                    with a contextual class (like .badge-secondary) 
+                                    within <span> elements to create rectangular badges.
+                                    Note that badges scale to match the size of the
+                                    parent element (if any):
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </a>
-        </div>
-    </div> --}}
-    {{-- <div class="col-lg-8 offset-lg-2 mt-3">
-        <div class="row" style="font-size:14px">
-            <div class="col-md-6 col-lg-3 text-right">
-                <p class="text-primary"><i class="fa fa-money text-success"></i> {{ $room->price }}</p>
-                @foreach (unserialize($room->services) as $service)
-                    <p class="text-primary">{!! $service !!}</p>
-                @endforeach
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <input class="form-control" type="text"  placeholder="Write Something ..." 
+                    data-toggle="modal" data-target="#comment">
+                    <!-- <button class="btn btn-success mr-5" data-toggle="modal" data-target="#comment">Comment</button> -->
+                </div>
             </div>
         </div>
-    </div> --}}
+    </div>
+
+    <div class="modal fade" id="comment">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title text-muted">Comment</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                
+                  
+                <div class="modal-body">
+                    <form action="" class="english bg-white">
+                        <div class="form-group">
+                        <label for="address">Address:</label>
+                        <input type="text" class="form-control" id="address" placeholder="Enter address" name="email">
+                        </div>
+                        <div class="form-group">
+                        <label for="comment">Comment:</label>
+                        <textarea class="form-control" rows="7" id="comment" placeholder="Write Something ..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-block btn-primary">Post</button>
+                    </form>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" type="submit" class="btn btn-danger" data-dismiss="modal">Close</button>
+                </div>
+        
+            </div>
+        </div>
+    </div>
+@endsection

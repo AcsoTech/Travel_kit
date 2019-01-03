@@ -41,18 +41,18 @@
                 </div>
             </a>
             
-            <div class="card-footer bg-white">
+            {{-- <div class="card-footer bg-white">
                  <a href="{{ url('/review') }}" class="float-left card-link">
                     4 Like &nbsp;<i class="fa fa-heart-o"></i>
                 </a>
                   <a href="#" class="float-right card-link" data-toggle="modal" data-target="#review">
                     6 Reviews &nbsp;<i class="fa fa-commenting-o"></i>
                 </a>
-            </div>
+            </div> --}}
         </div>
     </div>
 @endforeach
-    <div class="modal fade" id="review">
+    {{-- <div class="modal fade" id="review">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <!-- Modal Header -->
@@ -185,5 +185,5 @@
         
             </div>
         </div>
-    </div>
+    </div> --}}
 @endsection
